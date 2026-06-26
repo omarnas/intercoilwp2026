@@ -340,7 +340,7 @@
                     "name": "brand_statement_heading",
                     "aria-label": "",
                     "type": "textarea",
-                    "instructions": "Use a line break after the first line. The second line will be styled in italics.",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -403,6 +403,87 @@
                     "preview_size": "medium"
                 }
             ]
+        },
+        {
+            "key": "field_6a3e1b166f588",
+            "label": "Brands Header",
+            "name": "brands_header",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6a3e1b396f589",
+                    "label": "Section Label",
+                    "name": "section_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Our Brands",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_6a3e1b4b6f58a",
+                    "label": "Brands Heading",
+                    "name": "brands_heading",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Use a line break to split the heading across multiple lines.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Trusted Names.\r\nDistinct Purpose.",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_6a3e1b756f58b",
+                    "label": "Brands Subheading",
+                    "name": "brands_subheading",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "A portfolio of trusted sleep and bedroom brands, designed to serve every lifestyle, every market, and every standard of comfort.",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -426,5 +507,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1782454421
+    "modified": 1782455197
 }

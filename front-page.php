@@ -22,16 +22,7 @@ get_header();
          SECTION 4 — BRAND PORTFOLIO
     ══════════════════════════════════════════ -->
     <section class="brands" id="brands" aria-labelledby="brands-heading">
-      <div class="container">
-        <header class="brands__header">
-          <span class="section-label section-label--light">Our Brands</span>
-          <h2 class="brands__heading fade-up" id="brands-heading">Trusted Names.<br>Distinct Purpose.</h2>
-          <p class="brands__subheading fade-up delay-1">
-            A portfolio of trusted sleep and bedroom brands, designed to serve every lifestyle,
-            every market, and every standard of comfort.
-          </p>
-        </header>
-      </div>
+      <?php get_template_part( 'template-parts/home/brands', 'header' ); ?>
 
       <div class="brands__showcase">
 
