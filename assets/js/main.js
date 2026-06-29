@@ -95,7 +95,7 @@
   }
 
   /* ─────────────────────────────────────────
-     STATS — luxury reveal (no count-up)
+     STATS — calm count-up on reveal
   ───────────────────────────────────────── */
   function initStatsReveal() {
     const section = document.querySelector('.stats');
@@ -104,15 +104,66 @@
 
     section.classList.add('stats--ready');
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      items.forEach(function (item) { item.classList.add('is-revealed'); });
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const COUNT_MS      = 1800;
+
+    function setFinalValue(item) {
+      const valueEl = item.querySelector('.stats__value');
+      if (!valueEl) return;
+      valueEl.textContent = valueEl.dataset.statValue || '0';
+    }
+
+    function animateValue(item) {
+      const valueEl = item.querySelector('.stats__value');
+      if (!valueEl || valueEl.dataset.counted === 'true') return;
+
+      valueEl.dataset.counted = 'true';
+
+      const target = parseInt(valueEl.dataset.statValue, 10);
+      if (!target || reducedMotion) {
+        setFinalValue(item);
+        return;
+      }
+
+      const delay = parseInt(getComputedStyle(item).getPropertyValue('--stat-delay'), 10) || 0;
+      const startAt = performance.now() + delay;
+
+      function frame(now) {
+        if (now < startAt) {
+          requestAnimationFrame(frame);
+          return;
+        }
+
+        const progress = Math.min((now - startAt) / COUNT_MS, 1);
+        valueEl.textContent = String(Math.round(progress * target));
+
+        if (progress < 1) {
+          requestAnimationFrame(frame);
+        } else {
+          valueEl.textContent = String(target);
+        }
+      }
+
+      requestAnimationFrame(frame);
+    }
+
+    function revealItem(item) {
+      item.classList.add('is-revealed');
+      animateValue(item);
+    }
+
+    if (reducedMotion) {
+      items.forEach(function (item) {
+        setFinalValue(item);
+        item.classList.add('is-revealed');
+      });
       return;
     }
 
     const io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-revealed');
+        revealItem(entry.target);
         io.unobserve(entry.target);
       });
     }, { threshold: 0.45, rootMargin: '0px 0px -8% 0px' });

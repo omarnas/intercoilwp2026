@@ -82,34 +82,19 @@ function intercoil_sanitize_stat_number( $number ) {
 }
 
 /**
- * Render individual digit spans for the stats animation.
+ * Render the stat value element used for count-up animation.
  *
  * @param string $number Raw stat number value.
  * @return string
  */
 function intercoil_stat_digits_html( $number ) {
-	$digits = str_split( intercoil_sanitize_stat_number( $number ) );
+	$sanitized = intercoil_sanitize_stat_number( $number );
 
-	if ( empty( $digits ) ) {
+	if ( '' === $sanitized ) {
 		return '';
 	}
 
-	$last_index = count( $digits ) - 1;
-	$html       = '<span class="stats__digits">';
-
-	foreach ( $digits as $index => $digit ) {
-		$classes = 'stats__digit';
-
-		if ( $index === $last_index ) {
-			$classes .= ' stats__digit--last';
-		}
-
-		$html .= '<span class="' . esc_attr( $classes ) . '">' . esc_html( $digit ) . '</span>';
-	}
-
-	$html .= '</span>';
-
-	return $html;
+	return '<span class="stats__digits"><span class="stats__value" data-stat-value="' . esc_attr( $sanitized ) . '">0</span></span>';
 }
 
 /**
@@ -140,4 +125,30 @@ function intercoil_stat_label_html( $label ) {
  */
 function intercoil_stat_accessible_text( $number, $suffix ) {
 	return intercoil_sanitize_stat_number( $number ) . (string) $suffix;
+}
+
+/**
+ * Render a stat suffix with unit letters at full figure size.
+ *
+ * @param string $suffix Raw stat suffix value.
+ * @return string
+ */
+function intercoil_stat_suffix_html( $suffix ) {
+	$suffix = (string) $suffix;
+
+	if ( '' === $suffix ) {
+		return '';
+	}
+
+	if ( preg_match( '/^([A-Za-z]+)(.*)$/u', $suffix, $matches ) ) {
+		$html = '<span class="stats__suffix stats__suffix--unit">' . esc_html( $matches[1] ) . '</span>';
+
+		if ( '' !== $matches[2] ) {
+			$html .= '<span class="stats__suffix stats__suffix--symbol">' . esc_html( $matches[2] ) . '</span>';
+		}
+
+		return $html;
+	}
+
+	return '<span class="stats__suffix stats__suffix--symbol">' . esc_html( $suffix ) . '</span>';
 }

@@ -27,7 +27,7 @@ $stats = intercoil_get_stats();
 						<span class="stats__figure" aria-hidden="true">
 							<?php echo intercoil_stat_digits_html( $stat['stat_number'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							<?php if ( ! empty( $stat['stat_suffix'] ) ) : ?>
-								<span class="stats__suffix"><?php echo esc_html( $stat['stat_suffix'] ); ?></span>
+								<?php echo intercoil_stat_suffix_html( $stat['stat_suffix'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							<?php endif; ?>
 						</span>
 						<span class="sr-only"><?php echo esc_html( intercoil_stat_accessible_text( $stat['stat_number'], $stat['stat_suffix'] ) ); ?></span>

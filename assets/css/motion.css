@@ -291,37 +291,14 @@
 .hospitality__marquee-wrap.is-logos-revealed .hospitality__marquee-logo:nth-child(7) { transition-delay: 0.36s; }
 .hospitality__marquee-wrap.is-logos-revealed .hospitality__marquee-logo:nth-child(8) { transition-delay: 0.42s; }
 
-/* ── Stats ambient sweep ── */
-.stats {
-  position: relative;
-  overflow: hidden;
-}
-
+/* ── Stats section stacking ── */
 .stats__ambient {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background: linear-gradient(
-    105deg,
-    transparent 42%,
-    rgba(255, 255, 255, 0.035) 50%,
-    transparent 58%
-  );
-  transform: translateX(-120%);
-  animation: statsAmbientSweep 14s var(--ease-luxury) infinite;
+  display: none;
 }
 
 .stats__grid {
   position: relative;
   z-index: 1;
-}
-
-@keyframes statsAmbientSweep {
-  0%, 72%  { transform: translateX(-120%); opacity: 0; }
-  78%      { opacity: 1; }
-  92%      { transform: translateX(120%); opacity: 0; }
-  100%     { transform: translateX(120%); opacity: 0; }
 }
 
 /* ── Manufacturing certs ── */

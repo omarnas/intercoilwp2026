@@ -21,7 +21,7 @@ $secondary_button_link  = $first_slide['secondary_button_link'] ?: '#brands';
 <!-- ══════════════════════════════════════════
      SECTION 1 — HERO (full-width carousel)
 ══════════════════════════════════════════ -->
-<section class="hero hero-carousel" aria-label="<?php esc_attr_e( 'Hero — Sleep, Crafted to Perfection', 'intercoil' ); ?>">
+<section class="hero hero-carousel is-first-slide" aria-label="<?php esc_attr_e( 'Hero — Sleep, Crafted to Perfection', 'intercoil' ); ?>">
 
 	<div class="hero-carousel__slides" aria-live="polite">
 
@@ -82,10 +82,16 @@ $secondary_button_link  = $first_slide['secondary_button_link'] ?: '#brands';
 		</div>
 	</div>
 
-	<div class="hero-carousel__controls" aria-label="<?php esc_attr_e( 'Hero slide navigation', 'intercoil' ); ?>">
-		<button type="button" class="hero-carousel__arrow hero-carousel__arrow--prev" aria-label="<?php esc_attr_e( 'Previous slide', 'intercoil' ); ?>">
+	<div class="hero-carousel__nav" aria-hidden="false">
+		<button type="button" class="hero-carousel__arrow hero-carousel__arrow--prev hero-carousel__arrow--side" aria-label="<?php esc_attr_e( 'Previous slide', 'intercoil' ); ?>">
 			<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
 		</button>
+		<button type="button" class="hero-carousel__arrow hero-carousel__arrow--next hero-carousel__arrow--side" aria-label="<?php esc_attr_e( 'Next slide', 'intercoil' ); ?>">
+			<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+		</button>
+	</div>
+
+	<div class="hero-carousel__controls" aria-label="<?php esc_attr_e( 'Hero slide navigation', 'intercoil' ); ?>">
 		<div class="hero-carousel__dots" role="tablist" aria-label="<?php esc_attr_e( 'Choose slide', 'intercoil' ); ?>">
 			<?php foreach ( $hero_slides as $index => $slide ) : ?>
 				<?php $is_active = 0 === $index; ?>
@@ -95,12 +101,13 @@ $secondary_button_link  = $first_slide['secondary_button_link'] ?: '#brands';
 					role="tab"
 					aria-selected="<?php echo $is_active ? 'true' : 'false'; ?>"
 					aria-label="<?php echo esc_attr( intercoil_hero_slide_dot_label( $slide['heading'], $index ) ); ?>"
-				></button>
+				>
+					<span class="hero-carousel__dot-bar" aria-hidden="true">
+						<span class="hero-carousel__dot-fill"></span>
+					</span>
+				</button>
 			<?php endforeach; ?>
 		</div>
-		<button type="button" class="hero-carousel__arrow hero-carousel__arrow--next" aria-label="<?php esc_attr_e( 'Next slide', 'intercoil' ); ?>">
-			<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-		</button>
 	</div>
 
 </section>

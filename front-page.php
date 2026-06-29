@@ -28,7 +28,7 @@ get_header();
 
         <!-- Brand 01 — Intercoil -->
         <article class="brand-panel brand-panel--intercoil fade-up" aria-label="Intercoil brand">
-          <div class="brand-panel__bg"  style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/intercoil-brand.jpg?2' ) ); ?>');"></div>
+          <div class="brand-panel__bg"  style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/intercoil-brand-new.jpg' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
           <div class="brand-panel__inner">
             <span class="brand-panel__index" aria-hidden="true">01</span>
@@ -57,7 +57,7 @@ get_header();
 
         <!-- Brand 02 — Beautyrest -->
         <article class="brand-panel brand-panel--reverse fade-up" aria-label="Beautyrest by Simmons brand">
-          <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/beautyrest.jpg?2' ) ); ?>');"></div>
+          <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/beautyrestnew.jpg?2' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
           <div class="brand-panel__inner">
             <span class="brand-panel__index" aria-hidden="true">02</span>
@@ -86,7 +86,7 @@ get_header();
 
         <!-- Brand 03 — Therapedic -->
         <article class="brand-panel fade-up" aria-label="Therapedic brand">
-          <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/Therapedic.jpg?2' ) ); ?>');"></div>
+          <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/therapedicnew2.jpg?2' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
           <div class="brand-panel__inner">
             <span class="brand-panel__index" aria-hidden="true">03</span>
@@ -144,7 +144,7 @@ get_header();
 
         <!-- Brand 05 — The Bedroom -->
         <article class="brand-panel fade-up" aria-label="The Bedroom by Intercoil brand">
-          <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/bedroom.jpg' ) ); ?>');"></div>
+          <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/showroom.jpg' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
           <div class="brand-panel__inner">
             <span class="brand-panel__index" aria-hidden="true">05</span>

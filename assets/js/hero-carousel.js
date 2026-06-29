@@ -1,6 +1,6 @@
 /**
- * Intercoil Hero — Full-width image carousel
- * Fade transitions, autoplay, pause on hover, keyboard accessible
+ * Intercoil Hero — Premium fade carousel
+ * Side navigation, autoplay progress, keyboard + mobile swipe
  */
 
 (function () {
@@ -10,23 +10,34 @@
     const hero = document.querySelector('.hero-carousel');
     if (!hero) return;
 
-    const slides = hero.querySelectorAll('.hero-carousel__slide');
-    const dots   = hero.querySelectorAll('.hero-carousel__dot');
-    const prev   = hero.querySelector('.hero-carousel__arrow--prev');
-    const next   = hero.querySelector('.hero-carousel__arrow--next');
-    const textWrap = hero.querySelector('.hero__text');
-    const eyebrow  = hero.querySelector('.hero__eyebrow');
-    const heading  = hero.querySelector('.hero__heading');
-    const body     = hero.querySelector('.hero__body');
+    const slides      = hero.querySelectorAll('.hero-carousel__slide');
+    const dots        = hero.querySelectorAll('.hero-carousel__dot');
+    const prev        = hero.querySelector('.hero-carousel__arrow--prev');
+    const next        = hero.querySelector('.hero-carousel__arrow--next');
+    const contentWrap = hero.querySelector('.hero__content');
+    const eyebrow     = hero.querySelector('.hero__eyebrow');
+    const heading     = hero.querySelector('.hero__heading');
+    const body        = hero.querySelector('.hero__body');
 
     if (!slides.length) return;
 
-    let current = 0;
-    let timer   = null;
-    let textTimer = null;
-    let hasInitialized = false;
-    const INTERVAL = 6000;
+    const AUTOPLAY_MS   = 4500;
+    const TEXT_OUT_MS   = 420;
+    const SWIPE_MIN     = 48;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const touchEnabled  = window.matchMedia('(pointer: coarse)').matches;
+
+    let current             = 0;
+    let autoplayTimer       = null;
+    let textTimer           = null;
+    let hasInitialized      = false;
+    let isPaused            = false;
+    let heroInView          = true;
+    let touchStartX         = 0;
+    let firstCycleComplete  = false;
+    let observerInitialized = false;
+
+    hero.style.setProperty('--hero-autoplay-ms', AUTOPLAY_MS + 'ms');
 
     function formatHeading(text) {
       return (text || '').split('|').map(function (line) {
@@ -34,9 +45,64 @@
       }).join('<br>');
     }
 
+    function updateNavState() {
+      hero.classList.toggle('is-first-slide', current === 0);
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer) {
+        clearTimeout(autoplayTimer);
+        autoplayTimer = null;
+      }
+    }
+
+    function resetDotProgress() {
+      dots.forEach(function (dot, i) {
+        const fill = dot.querySelector('.hero-carousel__dot-fill');
+        if (!fill) return;
+
+        fill.style.animation = 'none';
+        fill.style.width = '0';
+
+        if (i === current) {
+          fill.offsetHeight;
+
+          if (reducedMotion) {
+            fill.style.width = '100%';
+          } else if (!isPaused) {
+            fill.style.animation = '';
+          }
+        }
+      });
+    }
+
+    function scheduleAutoplay() {
+      stopAutoplay();
+
+      if (reducedMotion || isPaused || !heroInView) return;
+
+      resetDotProgress();
+
+      autoplayTimer = setTimeout(function () {
+        firstCycleComplete = true;
+        goTo(current + 1);
+      }, AUTOPLAY_MS);
+    }
+
+    function setPaused(paused) {
+      isPaused = paused;
+      hero.classList.toggle('is-paused', paused);
+
+      if (paused) {
+        stopAutoplay();
+      } else {
+        scheduleAutoplay();
+      }
+    }
+
     function updateHeroText(index, animate) {
       const slide = slides[index];
-      if (!slide || !textWrap || !heading || !body) return;
+      if (!slide || !contentWrap || !heading || !body) return;
 
       if (textTimer) clearTimeout(textTimer);
 
@@ -65,20 +131,21 @@
 
       if (!animate || reducedMotion) {
         applyText();
-        textWrap.classList.remove('is-changing');
+        contentWrap.classList.remove('is-changing');
         return;
       }
 
-      textWrap.classList.add('is-changing');
+      contentWrap.classList.add('is-changing');
 
       textTimer = setTimeout(function () {
         applyText();
-        textWrap.classList.remove('is-changing');
-      }, 320);
+        contentWrap.classList.remove('is-changing');
+      }, TEXT_OUT_MS);
     }
 
     function goTo(index) {
       const changed = index !== current || !hasInitialized;
+
       current = (index + slides.length) % slides.length;
 
       slides.forEach(function (slide, i) {
@@ -91,51 +158,115 @@
         dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
       });
 
-      if (changed) updateHeroText(current, hasInitialized);
-      hasInitialized = true;
-
-      var activeWrap = slides[current].querySelector('.reveal-mask');
-      if (activeWrap) activeWrap.classList.add('is-revealed');
-    }
-
-    function nextSlide() { goTo(current + 1); }
-    function prevSlide() { goTo(current - 1); }
-
-    function startAutoplay() {
-      if (reducedMotion) return;
-      stopAutoplay();
-      timer = setInterval(nextSlide, INTERVAL);
-    }
-
-    function stopAutoplay() {
-      if (timer) {
-        clearInterval(timer);
-        timer = null;
+      if (changed) {
+        updateHeroText(current, hasInitialized);
       }
+
+      hasInitialized = true;
+      updateNavState();
+
+      const activeWrap = slides[current].querySelector('.reveal-mask');
+      if (activeWrap) activeWrap.classList.add('is-revealed');
+
+      scheduleAutoplay();
+    }
+
+    function userGoTo(index) {
+      stopAutoplay();
+      goTo(index);
     }
 
     dots.forEach(function (dot, i) {
       dot.addEventListener('click', function () {
-        goTo(i);
-        startAutoplay();
+        userGoTo(i);
       });
     });
 
-    if (prev) prev.addEventListener('click', function () { prevSlide(); startAutoplay(); });
-    if (next) next.addEventListener('click', function () { nextSlide(); startAutoplay(); });
+    if (prev) {
+      prev.addEventListener('click', function () {
+        userGoTo(current - 1);
+      });
+    }
 
-    hero.addEventListener('mouseenter', stopAutoplay);
-    hero.addEventListener('mouseleave', startAutoplay);
-    hero.addEventListener('focusin', stopAutoplay);
-    hero.addEventListener('focusout', function (e) {
-      if (!hero.contains(e.relatedTarget)) startAutoplay();
+    if (next) {
+      next.addEventListener('click', function () {
+        userGoTo(current + 1);
+      });
+    }
+
+    hero.addEventListener('mouseenter', function () {
+      if (!firstCycleComplete) return;
+      setPaused(true);
     });
+    hero.addEventListener('mouseleave', function () { setPaused(false); });
+
+    hero.addEventListener('focusin', function () {
+      if (!firstCycleComplete) return;
+      setPaused(true);
+    });
+    hero.addEventListener('focusout', function (e) {
+      if (!hero.contains(e.relatedTarget)) setPaused(false);
+    });
+
+    if (touchEnabled) {
+      hero.addEventListener('touchstart', function (e) {
+        if (!e.changedTouches || !e.changedTouches.length) return;
+        touchStartX = e.changedTouches[0].screenX;
+        setPaused(true);
+      }, { passive: true });
+
+      hero.addEventListener('touchend', function (e) {
+        if (!e.changedTouches || !e.changedTouches.length) return;
+
+        const diff = touchStartX - e.changedTouches[0].screenX;
+
+        if (Math.abs(diff) >= SWIPE_MIN) {
+          stopAutoplay();
+          isPaused = false;
+          hero.classList.remove('is-paused');
+          goTo(diff > 0 ? current + 1 : current - 1);
+        } else {
+          setPaused(false);
+        }
+      }, { passive: true });
+
+      hero.addEventListener('touchcancel', function () {
+        setPaused(false);
+      }, { passive: true });
+    }
 
     document.addEventListener('keydown', function (e) {
-      if (!hero.matches(':hover') && document.activeElement && !hero.contains(document.activeElement)) return;
-      if (e.key === 'ArrowLeft') { prevSlide(); startAutoplay(); }
-      if (e.key === 'ArrowRight') { nextSlide(); startAutoplay(); }
+      if (!heroInView) return;
+
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        userGoTo(current - 1);
+      }
+
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        userGoTo(current + 1);
+      }
     });
+
+    const heroObserver = new IntersectionObserver(function (entries) {
+      heroInView = entries[0].isIntersecting;
+
+      // Skip the initial callback — goTo(0) already started the timer.
+      if (!observerInitialized) {
+        observerInitialized = true;
+        if (!heroInView) stopAutoplay();
+        return;
+      }
+
+      if (heroInView && !isPaused) {
+        scheduleAutoplay();
+      } else if (!heroInView) {
+        stopAutoplay();
+      }
+    }, { threshold: 0.35 });
+
+    heroObserver.observe(hero);
 
     requestAnimationFrame(function () {
       hero.querySelector('.hero__eyebrow')?.classList.add('is-loaded');
@@ -145,7 +276,6 @@
     });
 
     goTo(0);
-    startAutoplay();
   }
 
   if (document.readyState === 'loading') {
