@@ -137,6 +137,31 @@ ul { list-style: none; }
   color: var(--color-bright);
 }
 
+/* Editorial section marker — catalogue-style numbering */
+.section-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+}
+
+.section-marker__rule {
+  display: block;
+  width: clamp(32px, 4vw, 56px);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.28);
+  flex-shrink: 0;
+}
+
+.section-marker--reverse {
+  flex-direction: row-reverse;
+}
+
 /* Fade-up animation base state */
 .fade-up {
   opacity: 0;
@@ -1147,19 +1172,15 @@ ul { list-style: none; }
   justify-content: flex-end;
 }
 
-.brand-panel__index {
+.brand-panel__marker {
   position: absolute;
   top: clamp(32px, 5vw, 64px);
   right: var(--container-pad);
-  font-size: clamp(80px, 14vw, 220px);
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: rgba(255, 255, 255, 0.06);
+  z-index: 2;
   pointer-events: none;
-  user-select: none;
 }
-.brand-panel--reverse .brand-panel__index {
+
+.brand-panel--reverse .brand-panel__marker {
   right: auto;
   left: var(--container-pad);
 }
@@ -1429,7 +1450,7 @@ ul { list-style: none; }
 .hospitality__marquee-track {
   display: flex;
   align-items: center;
-  gap: clamp(32px, 4vw, 56px);
+  gap: clamp(40px, 5vw, 72px);
   width: max-content;
   will-change: transform;
 }
@@ -1447,8 +1468,8 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: clamp(88px, 10vw, 130px);
-  height: clamp(34px, 4vw, 48px);
+  width: clamp(128px, 14vw, 190px);
+  height: clamp(52px, 5.5vw, 72px);
 }
 
 .hospitality__marquee-logo img {
@@ -2032,10 +2053,6 @@ ul { list-style: none; }
     justify-content: flex-end;
     margin-left: auto;
   }
-  .brand-panel--reverse .brand-panel__index {
-    left: auto;
-    right: var(--container-pad);
-  }
 
   .collections__grid {
     grid-template-columns: 1fr 1fr;
@@ -2168,8 +2185,7 @@ ul { list-style: none; }
     min-height: clamp(420px, 65vh, 600px);
     padding: 40px var(--container-pad);
   }
-  .brand-panel__index {
-    font-size: clamp(64px, 22vw, 120px);
+  .brand-panel__marker {
     top: 24px;
   }
   .brand-panel__content {
@@ -2181,8 +2197,8 @@ ul { list-style: none; }
   .collection-tile--sm { min-height: 240px; }
 
   .hospitality__marquee-logo {
-    width: 96px;
-    height: 36px;
+    width: 124px;
+    height: 52px;
   }
 
   .manufacturing__certs { grid-template-columns: repeat(2, 1fr); gap: 12px; }

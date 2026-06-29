@@ -31,7 +31,12 @@ get_header();
           <div class="brand-panel__bg"  style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/intercoil-brand-new.jpg' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
           <div class="brand-panel__inner">
-            <span class="brand-panel__index" aria-hidden="true">01</span>
+            <div class="brand-panel__marker" aria-hidden="true">
+              <span class="section-marker">
+                <span class="section-marker__rule"></span>
+                <span class="section-marker__text">01 — Intercoil</span>
+              </span>
+            </div>
             <div class="brand-panel__content">
               <div class="brand-panel__logo-wrap">
                 <img
@@ -60,7 +65,12 @@ get_header();
           <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/beautyrestnew.jpg?2' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
           <div class="brand-panel__inner">
-            <span class="brand-panel__index" aria-hidden="true">02</span>
+            <div class="brand-panel__marker" aria-hidden="true">
+              <span class="section-marker section-marker--reverse">
+                <span class="section-marker__rule"></span>
+                <span class="section-marker__text">02 — Beautyrest</span>
+              </span>
+            </div>
             <div class="brand-panel__content">
               <div class="brand-panel__logo-wrap brand-panel__logo-wrap--beautyrest">
                 <img
@@ -89,7 +99,12 @@ get_header();
           <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/therapedicnew2.jpg?2' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
           <div class="brand-panel__inner">
-            <span class="brand-panel__index" aria-hidden="true">03</span>
+            <div class="brand-panel__marker" aria-hidden="true">
+              <span class="section-marker">
+                <span class="section-marker__rule"></span>
+                <span class="section-marker__text">03 — Therapedic</span>
+              </span>
+            </div>
             <div class="brand-panel__content">
               <div class="brand-panel__logo-wrap">
                 <img
@@ -118,7 +133,12 @@ get_header();
           <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/ghalya.jpg?2' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
           <div class="brand-panel__inner">
-            <span class="brand-panel__index" aria-hidden="true">04</span>
+            <div class="brand-panel__marker" aria-hidden="true">
+              <span class="section-marker section-marker--reverse">
+                <span class="section-marker__rule"></span>
+                <span class="section-marker__text">04 — Ghalya&rsquo;s</span>
+              </span>
+            </div>
             <div class="brand-panel__content">
               <div class="brand-panel__logo-wrap brand-panel__logo-wrap--ghalya">
                 <img
@@ -147,7 +167,12 @@ get_header();
           <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/showroom.jpg' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
           <div class="brand-panel__inner">
-            <span class="brand-panel__index" aria-hidden="true">05</span>
+            <div class="brand-panel__marker" aria-hidden="true">
+              <span class="section-marker">
+                <span class="section-marker__rule"></span>
+                <span class="section-marker__text">05 — The Bedroom</span>
+              </span>
+            </div>
             <div class="brand-panel__content">
               <div class="brand-panel__logo-wrap">
                 <img
@@ -173,10 +198,15 @@ get_header();
 
         <!-- Brand 06 — Dolidol -->
         <article class="brand-panel brand-panel--reverse fade-up" aria-label="Dolidol brand">
-          <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/mattresses/comfortable-mattress-and-soft-touch-for-good-sleep-2026-03-23-23-01-57-utc.jpg?2' ) ); ?>');"></div>
+          <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/dolidolnew.jpg?2' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
           <div class="brand-panel__inner">
-            <span class="brand-panel__index" aria-hidden="true">06</span>
+            <div class="brand-panel__marker" aria-hidden="true">
+              <span class="section-marker section-marker--reverse">
+                <span class="section-marker__rule"></span>
+                <span class="section-marker__text">06 — Dolidol</span>
+              </span>
+            </div>
             <div class="brand-panel__content">
               <div class="brand-panel__logo-wrap brand-panel__logo-wrap--dolidol">
                 <img
@@ -280,7 +310,7 @@ get_header();
             </div>
             <div class="collection-tile__overlay"></div>
             <div class="collection-tile__content">
-              <h3 class="collection-tile__name">Foam &amp; Industrial Solutions</h3>
+              <h3 class="collection-tile__name">Industrial Foam</h3>
               <p class="collection-tile__sub">Precision materials at scale</p>
             </div>
           </div>
@@ -290,7 +320,7 @@ get_header();
             <div class="reveal-mask">
               <img
                 class="collection-tile__img"
-                src="<?php echo esc_url( intercoil_asset_uri( 'images/photography/hospitality/3d-rendering-beautiful-luxury-bedroom-suite-in-hot-2026-03-17-04-32-19-utc.jpg' ) ); ?>"
+                src="<?php echo esc_url( intercoil_asset_uri( 'images/photography/hotelroom.jpg' ) ); ?>"
                 alt="Hospitality sleep solutions"
                 loading="lazy"
               />
