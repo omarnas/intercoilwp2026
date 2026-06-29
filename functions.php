@@ -119,6 +119,16 @@ function intercoil_enqueue_assets() {
 		true
 	);
 
+	if ( is_front_page() ) {
+		wp_enqueue_script(
+			'intercoil-timeline-story',
+			$theme_uri . '/assets/js/timeline-story.js',
+			array( 'gsap', 'gsap-scrolltrigger' ),
+			intercoil_file_version( $theme_dir . '/assets/js/timeline-story.js' ),
+			true
+		);
+	}
+
 	wp_enqueue_script(
 		'intercoil-motion',
 		$theme_uri . '/assets/js/motion.js',

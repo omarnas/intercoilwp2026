@@ -137,77 +137,6 @@
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.4)) brightness(1.06);
 }
 
-/* ── Timeline ── */
-.timeline__track.is-motion-ready .timeline__item {
-  opacity: 0.62;
-  transform: translateY(0);
-  transition:
-    opacity 0.55s var(--ease-luxury),
-    transform 0.55s var(--ease-luxury),
-    box-shadow 0.55s var(--ease-luxury);
-}
-
-.timeline__track.is-motion-ready .timeline__item.is-entered {
-  opacity: 0.62;
-}
-
-.timeline__track.is-motion-ready .timeline__item.is-active {
-  opacity: 1;
-  transform: translateY(-4px);
-}
-
-.timeline__item:hover,
-.timeline__track.is-motion-ready .timeline__item.is-active:hover {
-  transform: translateY(-4px);
-}
-
-.timeline__year {
-  transition: color 0.5s var(--ease-luxury);
-}
-
-.timeline__item:hover .timeline__year,
-.timeline__item.is-active .timeline__year {
-  color: var(--color-royal);
-}
-
-.timeline__marker {
-  transition:
-    transform 0.5s var(--ease-luxury),
-    background 0.5s var(--ease-luxury),
-    border-color 0.5s var(--ease-luxury),
-    box-shadow 0.5s var(--ease-luxury);
-}
-
-.timeline__item:hover .timeline__marker,
-.timeline__item.is-active .timeline__marker {
-  transform: scale(1.12);
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  box-shadow: 0 0 0 4px rgba(0, 160, 243, 0.12);
-}
-
-.timeline__title {
-  transition: color 0.5s var(--ease-luxury);
-}
-
-.timeline__item:hover .timeline__title,
-.timeline__item.is-active .timeline__title {
-  color: var(--color-royal);
-}
-
-.timeline__track.is-motion-ready .timeline__item:not(.is-entered) {
-  opacity: 0;
-  transform: translateY(16px);
-}
-
-.timeline__track.is-motion-ready .timeline__item.is-entered {
-  opacity: 0.62;
-  transform: translateY(0);
-  transition:
-    opacity 0.75s var(--ease-luxury),
-    transform 0.75s var(--ease-luxury);
-}
-
 /* ── Collections ── */
 .collection-tile__overlay {
   transition: background 0.65s var(--ease-luxury);
@@ -301,37 +230,43 @@
   z-index: 1;
 }
 
-/* ── Manufacturing certs ── */
+/* ── Manufacturing certs — wall of trust ── */
 .manufacturing__cert {
   transition:
-    transform 0.55s var(--ease-luxury),
-    box-shadow 0.55s var(--ease-luxury),
-    border-color 0.55s var(--ease-luxury),
-    background 0.55s var(--ease-luxury);
+    transform 0.6s var(--ease-luxury),
+    box-shadow 0.6s var(--ease-luxury),
+    border-color 0.6s var(--ease-luxury),
+    background 0.6s var(--ease-luxury);
 }
 
 .manufacturing__cert:hover {
   transform: translateY(-4px);
-  border-color: rgba(0, 160, 243, 0.35);
-  box-shadow: 0 12px 32px rgba(0, 160, 243, 0.12);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.12),
+    0 0 32px rgba(79, 123, 217, 0.12);
+}
+
+.manufacturing__cert-mark {
+  transition:
+    box-shadow 0.6s var(--ease-luxury),
+    transform 0.6s var(--ease-luxury);
+}
+
+.manufacturing__cert:hover .manufacturing__cert-mark {
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.14),
+    0 0 24px rgba(79, 123, 217, 0.18),
+    inset 0 0 0 1px rgba(0, 8, 56, 0.04);
 }
 
 .manufacturing__cert img {
-  transition: transform 0.55s var(--ease-luxury);
+  transition: transform 0.6s var(--ease-luxury);
 }
 
 .manufacturing__cert:hover img {
   transform: scale(1.03);
-}
-
-@media (max-width: 680px) {
-  .timeline__track.is-motion-ready .timeline__item,
-  .timeline__track.is-motion-ready .timeline__item.is-entered,
-  .timeline__track.is-motion-ready .timeline__item.is-active {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -341,7 +276,6 @@
   .reveal-mask > .collection-tile__img,
   .brand-panel__bg,
   .brand-panel__content > *,
-  .timeline__item,
   .hospitality__marquee-logo,
   .hero-carousel__slide.is-active .hero-carousel__img,
   .hero__ambient,

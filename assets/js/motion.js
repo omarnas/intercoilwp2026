@@ -129,67 +129,6 @@
     }
   }
 
-  function initTimelineMotion() {
-    var section = document.querySelector('.timeline');
-    var track = document.querySelector('.timeline__track');
-    if (!section || !track) return;
-
-    var items = track.querySelectorAll('.timeline__item');
-    var mobileQuery = window.matchMedia('(max-width: 680px)');
-
-    function revealItems() {
-      if (track.classList.contains('is-items-revealed')) return;
-      track.classList.add('is-items-revealed', 'is-motion-ready');
-
-      items.forEach(function (item, i) {
-        setTimeout(function () {
-          item.classList.add('is-entered');
-        }, i * 80);
-      });
-    }
-
-    var sectionIo = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        revealItems();
-        sectionIo.unobserve(entry.target);
-      });
-    }, { threshold: 0.25 });
-
-    sectionIo.observe(section);
-
-    function updateActiveItem() {
-      if (mobileQuery.matches || !track.classList.contains('is-motion-ready')) return;
-
-      var trackRect = track.getBoundingClientRect();
-      var centerX = trackRect.left + trackRect.width * 0.42;
-      var closest = null;
-      var minDist = Infinity;
-
-      items.forEach(function (item) {
-        var rect = item.getBoundingClientRect();
-        var itemCenter = rect.left + rect.width * 0.5;
-        var dist = Math.abs(itemCenter - centerX);
-
-        if (dist < minDist) {
-          minDist = dist;
-          closest = item;
-        }
-      });
-
-      items.forEach(function (item) {
-        item.classList.toggle('is-active', item === closest);
-      });
-    }
-
-    window.IntercoilUpdateTimelineActive = updateActiveItem;
-
-    track.addEventListener('scroll', updateActiveItem, { passive: true });
-    window.addEventListener('resize', updateActiveItem);
-    mobileQuery.addEventListener('change', updateActiveItem);
-    updateActiveItem();
-  }
-
   function initCollectionReveals() {
     var tiles = document.querySelectorAll('.collection-tile');
     if (!tiles.length) return;
@@ -217,9 +156,6 @@
       document.querySelectorAll('.reveal-up').forEach(function (el) {
         el.classList.add('is-visible');
       });
-      document.querySelectorAll('.timeline__item').forEach(function (el) {
-        el.classList.add('is-entered');
-      });
       var logoWrap = document.querySelector('.hospitality__marquee-wrap');
       if (logoWrap) logoWrap.classList.add('is-logos-revealed');
       return;
@@ -230,7 +166,6 @@
     initBrandPanels();
     initHeroMotion();
     initHospitalityMotion();
-    initTimelineMotion();
     initCollectionReveals();
 
     if (hasGsap()) {
