@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'INTERCOIL_VERSION', '1.0.0' );
+define( 'INTERCOIL_VERSION', '1.0.1' );
 
 require_once get_template_directory() . '/inc/helpers.php';
 require_once get_template_directory() . '/inc/post-types.php';
@@ -147,9 +147,9 @@ function intercoil_preload_assets() {
 		return;
 	}
 	?>
-	<link rel="preload" href="<?php intercoil_asset( 'images/photography/showroom/DSC_7919-1080x675-1.png' ); ?>" as="image" />
-	<link rel="preload" href="<?php intercoil_asset( 'fonts/AvenirNextArabic-Regular.woff2' ); ?>" as="font" type="font/woff2" crossorigin />
-	<link rel="preload" href="<?php intercoil_asset( 'fonts/AvenirNextArabic-Bold.woff2' ); ?>" as="font" type="font/woff2" crossorigin />
+	<link rel="preload" href="<?php echo esc_url( intercoil_asset_uri_versioned( 'images/photography/showroom/DSC_7919-1080x675-1.png' ) ); ?>" as="image" />
+	<link rel="preload" href="<?php echo esc_url( intercoil_asset_uri_versioned( 'fonts/AvenirNextArabic-Regular.woff2' ) ); ?>" as="font" type="font/woff2" crossorigin />
+	<link rel="preload" href="<?php echo esc_url( intercoil_asset_uri_versioned( 'fonts/AvenirNextArabic-Bold.woff2' ) ); ?>" as="font" type="font/woff2" crossorigin />
 	<?php
 }
 add_action( 'wp_head', 'intercoil_preload_assets', 1 );
