@@ -1720,31 +1720,39 @@ ul { list-style: none; }
 .timeline__chapter {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-rows:
+    [year] clamp(64px, 10vh, 96px)
+    [axis] auto
+    [title] auto
+    [copy] minmax(0, 1fr);
+  align-content: start;
+  justify-items: center;
   text-align: center;
   margin: 0;
-  padding: clamp(24px, 4vh, 48px) clamp(16px, 3vw, 32px);
+  padding: clamp(16px, 3vh, 28px) clamp(16px, 3vw, 32px) clamp(24px, 4vh, 40px);
   box-sizing: border-box;
 }
 
 .timeline__year {
-  margin: 0 0 clamp(20px, 3.5vh, 40px);
-  font-size: clamp(56px, 9vw, 120px);
-  font-weight: 300;
-  line-height: 0.92;
-  letter-spacing: -0.045em;
+  grid-row: year;
+  align-self: end;
+  width: 100%;
+  margin: 0;
+  font-size: clamp(44px, 7vw, 96px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
   color: var(--color-royal);
 }
 
 .timeline__axis {
+  grid-row: axis;
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
-  margin: 0 0 clamp(28px, 4vh, 48px);
+  margin: 0 0 clamp(20px, 3vh, 32px);
 }
 
 .timeline__axis-line {
@@ -1768,7 +1776,8 @@ ul { list-style: none; }
 }
 
 .timeline__title {
-  margin: 0 0 clamp(20px, 2.5vh, 32px);
+  grid-row: title;
+  margin: 0 0 clamp(16px, 2vh, 24px);
   max-width: 22ch;
   font-size: clamp(30px, 3.6vw, 48px);
   font-weight: 600;
@@ -1778,6 +1787,8 @@ ul { list-style: none; }
 }
 
 .timeline__copy {
+  grid-row: copy;
+  align-self: start;
   max-width: min(100%, 52ch);
 }
 
@@ -1828,6 +1839,12 @@ ul { list-style: none; }
 .timeline.is-static .timeline__chapter {
   position: relative;
   inset: auto;
+  display: grid;
+  grid-template-rows:
+    [year] clamp(56px, 10vw, 72px)
+    [axis] auto
+    [title] auto
+    [copy] auto;
   padding: clamp(64px, 9vh, 96px) clamp(16px, 3vw, 32px);
 }
 
@@ -1850,7 +1867,15 @@ ul { list-style: none; }
   }
 
   .timeline__year {
-    font-size: clamp(48px, 14vw, 72px);
+    font-size: clamp(40px, 10vw, 60px);
+  }
+
+  .timeline__chapter {
+    grid-template-rows:
+      [year] clamp(56px, 12vw, 72px)
+      [axis] auto
+      [title] auto
+      [copy] minmax(0, 1fr);
   }
 
   .timeline__title {
@@ -1878,6 +1903,12 @@ ul { list-style: none; }
   .timeline__story .timeline__chapter {
     position: relative;
     inset: auto;
+    display: grid;
+    grid-template-rows:
+      [year] clamp(56px, 10vw, 72px)
+      [axis] auto
+      [title] auto
+      [copy] auto;
     padding: clamp(64px, 9vh, 96px) clamp(16px, 3vw, 32px);
   }
 
@@ -2229,7 +2260,15 @@ ul { list-style: none; }
   }
 
   .timeline__year {
-    font-size: clamp(40px, 12vw, 64px);
+    font-size: clamp(36px, 10vw, 52px);
+  }
+
+  .timeline__chapter {
+    grid-template-rows:
+      [year] clamp(48px, 14vw, 64px)
+      [axis] auto
+      [title] auto
+      [copy] minmax(0, 1fr);
   }
 
   .timeline__title {
