@@ -30,13 +30,8 @@ get_header();
         <article class="brand-panel brand-panel--intercoil fade-up" aria-label="Intercoil brand">
           <div class="brand-panel__bg"  style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/intercoil-brand-new.jpg' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
+          <span class="brand-panel__index" aria-hidden="true">01</span>
           <div class="brand-panel__inner">
-            <div class="brand-panel__marker" aria-hidden="true">
-              <span class="section-marker">
-                <span class="section-marker__rule"></span>
-                <span class="section-marker__text">01 — Intercoil</span>
-              </span>
-            </div>
             <div class="brand-panel__content">
               <div class="brand-panel__logo-wrap">
                 <img
@@ -64,13 +59,8 @@ get_header();
         <article class="brand-panel brand-panel--reverse fade-up" aria-label="Beautyrest by Simmons brand">
           <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/beautyrestnew.jpg?2' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
+          <span class="brand-panel__index" aria-hidden="true">02</span>
           <div class="brand-panel__inner">
-            <div class="brand-panel__marker" aria-hidden="true">
-              <span class="section-marker section-marker--reverse">
-                <span class="section-marker__rule"></span>
-                <span class="section-marker__text">02 — Beautyrest</span>
-              </span>
-            </div>
             <div class="brand-panel__content">
               <div class="brand-panel__logo-wrap brand-panel__logo-wrap--beautyrest">
                 <img
@@ -98,13 +88,8 @@ get_header();
         <article class="brand-panel fade-up" aria-label="Therapedic brand">
           <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/therapedicnew2.jpg?2' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
+          <span class="brand-panel__index" aria-hidden="true">03</span>
           <div class="brand-panel__inner">
-            <div class="brand-panel__marker" aria-hidden="true">
-              <span class="section-marker">
-                <span class="section-marker__rule"></span>
-                <span class="section-marker__text">03 — Therapedic</span>
-              </span>
-            </div>
             <div class="brand-panel__content">
               <div class="brand-panel__logo-wrap">
                 <img
@@ -128,56 +113,17 @@ get_header();
           </div>
         </article>
 
-        <!-- Brand 04 — Ghalya's -->
-        <article class="brand-panel brand-panel--reverse fade-up" aria-label="Ghalya by Intercoil brand">
-          <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/ghalya.jpg?2' ) ); ?>');"></div>
-          <div class="brand-panel__overlay"></div>
-          <div class="brand-panel__inner">
-            <div class="brand-panel__marker" aria-hidden="true">
-              <span class="section-marker section-marker--reverse">
-                <span class="section-marker__rule"></span>
-                <span class="section-marker__text">04 — Ghalya&rsquo;s</span>
-              </span>
-            </div>
-            <div class="brand-panel__content">
-              <div class="brand-panel__logo-wrap brand-panel__logo-wrap--ghalya">
-                <img
-                  class="brand-panel__logo"
-                  src="<?php echo esc_url( intercoil_asset_uri( 'logos/brands/ghalya.png' ) ); ?>"
-                  alt="Ghalya by Intercoil"
-                  loading="lazy"
-                />
-              </div>
-              <p class="brand-panel__tagline">Created Exclusively for Children</p>
-              <p class="brand-panel__desc">
-                The first sleep brand for children — designed to support every stage of growing up.
-              </p>
-              <a href="#" class="brand-panel__cta" aria-label="Explore Ghalya's">
-                Explore Brand
-                <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
-                  <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Brand 05 — The Bedroom -->
-        <article class="brand-panel fade-up" aria-label="The Bedroom by Intercoil brand">
+        <!-- Brand 04 — The Bedroom -->
+        <article class="brand-panel brand-panel--reverse fade-up" aria-label="The Bedroom by Intercoil brand">
           <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/showroom.jpg' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
+          <span class="brand-panel__index" aria-hidden="true">04</span>
           <div class="brand-panel__inner">
-            <div class="brand-panel__marker" aria-hidden="true">
-              <span class="section-marker">
-                <span class="section-marker__rule"></span>
-                <span class="section-marker__text">05 — The Bedroom</span>
-              </span>
-            </div>
             <div class="brand-panel__content">
               <div class="brand-panel__logo-wrap">
                 <img
                   class="brand-panel__logo"
-                  src="<?php echo esc_url( intercoil_asset_uri( 'logos/brands/thebedroom.png' ) ); ?>"
+                  src="<?php echo esc_url( intercoil_asset_uri( 'logos/brands/newbedroomlogo.png' ) ); ?>"
                   alt="The Bedroom by Intercoil"
                   loading="lazy"
                 />
@@ -196,17 +142,41 @@ get_header();
           </div>
         </article>
 
+        <!-- Brand 05 — Ghalya's -->
+        <article class="brand-panel fade-up" aria-label="Ghalya by Intercoil brand">
+          <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/ghalya.jpg?2' ) ); ?>');"></div>
+          <div class="brand-panel__overlay"></div>
+          <span class="brand-panel__index" aria-hidden="true">05</span>
+          <div class="brand-panel__inner">
+            <div class="brand-panel__content">
+              <div class="brand-panel__logo-wrap brand-panel__logo-wrap--ghalya">
+                <img
+                  class="brand-panel__logo"
+                  src="<?php echo esc_url( intercoil_asset_uri( 'logos/brands/ghalyanewlogo2.png' ) ); ?>"
+                  alt="Ghalya by Intercoil"
+                  loading="lazy"
+                />
+              </div>
+              <p class="brand-panel__tagline">Created Exclusively for Children</p>
+              <p class="brand-panel__desc">
+                The first sleep brand for children — designed to support every stage of growing up.
+              </p>
+              <a href="#" class="brand-panel__cta" aria-label="Explore Ghalya's">
+                Explore Brand
+                <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
         <!-- Brand 06 — Dolidol -->
         <article class="brand-panel brand-panel--reverse fade-up" aria-label="Dolidol brand">
-          <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/dolidolnew.jpg?2' ) ); ?>');"></div>
+          <div class="brand-panel__bg" style="background-image: url('<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/dolidol-newbanner.jpg?2' ) ); ?>');"></div>
           <div class="brand-panel__overlay"></div>
+          <span class="brand-panel__index" aria-hidden="true">06</span>
           <div class="brand-panel__inner">
-            <div class="brand-panel__marker" aria-hidden="true">
-              <span class="section-marker section-marker--reverse">
-                <span class="section-marker__rule"></span>
-                <span class="section-marker__text">06 — Dolidol</span>
-              </span>
-            </div>
             <div class="brand-panel__content">
               <div class="brand-panel__logo-wrap brand-panel__logo-wrap--dolidol">
                 <img
@@ -373,23 +343,48 @@ get_header();
                 </svg>
               </a>
             </div>
-
-            <div class="hospitality__marquee-wrap reveal-up delay-4" aria-label="Hotel partners">
-              <div class="hospitality__marquee">
-                <div class="hospitality__marquee-track">
-                  <span class="hospitality__marquee-logo"><img src="<?php echo esc_url( intercoil_asset_uri( 'logos/hospitality/white/hotels_1.png' ) ); ?>" alt="Hotel partner" loading="eager" decoding="async" /></span>
-                  <span class="hospitality__marquee-logo"><img src="<?php echo esc_url( intercoil_asset_uri( 'logos/hospitality/white/hotels_2.png' ) ); ?>" alt="Hotel partner" loading="eager" decoding="async" /></span>
-                  <span class="hospitality__marquee-logo"><img src="<?php echo esc_url( intercoil_asset_uri( 'logos/hospitality/white/hotels_3.png' ) ); ?>" alt="Hotel partner" loading="eager" decoding="async" /></span>
-                  <span class="hospitality__marquee-logo"><img src="<?php echo esc_url( intercoil_asset_uri( 'logos/hospitality/white/hotels_4.png' ) ); ?>" alt="Hotel partner" loading="eager" decoding="async" /></span>
-                  <span class="hospitality__marquee-logo"><img src="<?php echo esc_url( intercoil_asset_uri( 'logos/hospitality/white/hotels_5.png' ) ); ?>" alt="Hotel partner" loading="eager" decoding="async" /></span>
-                  <span class="hospitality__marquee-logo"><img src="<?php echo esc_url( intercoil_asset_uri( 'logos/hospitality/white/jumirah.png' ) ); ?>" alt="Jumeirah" loading="eager" decoding="async" /></span>
-                  <span class="hospitality__marquee-logo"><img src="<?php echo esc_url( intercoil_asset_uri( 'logos/hospitality/white/hilton.png' ) ); ?>" alt="Hilton" loading="eager" decoding="async" /></span>
-                  <span class="hospitality__marquee-logo"><img src="<?php echo esc_url( intercoil_asset_uri( 'logos/hospitality/white/SHANGARALI.png' ) ); ?>" alt="Shangri-La" loading="eager" decoding="async" /></span>
-                </div>
-              </div>
-            </div>
           </div>
 
+        </div>
+      </div>
+
+      <div class="hospitality__partners reveal-up delay-4" aria-label="Hotel partners">
+        <div class="hospitality__marquee-wrap">
+          <div class="hospitality__marquee">
+            <div class="hospitality__marquee-track">
+              <?php
+              $hospitality_logos = array(
+                array( 'file' => 'logos/hospitality/white/hotels_1.png', 'alt' => 'Hotel partner' ),
+                array( 'file' => 'logos/hospitality/white/hotels_2.png', 'alt' => 'Hotel partner' ),
+                array( 'file' => 'logos/hospitality/white/hotels_3.png', 'alt' => 'Hotel partner' ),
+                array( 'file' => 'logos/hospitality/white/hotels_4.png', 'alt' => 'Hotel partner' ),
+                array( 'file' => 'logos/hospitality/white/hotels_5.png', 'alt' => 'Hotel partner' ),
+                array( 'file' => 'logos/hospitality/white/jumirah.png', 'alt' => 'Jumeirah' ),
+                array( 'file' => 'logos/hospitality/white/hilton.png', 'alt' => 'Hilton' ),
+                array( 'file' => 'logos/hospitality/white/SHANGARALI.png', 'alt' => 'Shangri-La' ),
+                array( 'file' => 'logos/hospitality/white/Baccarat.png', 'alt' => 'Baccarat' ),
+                array( 'file' => 'logos/hospitality/white/Bulgari-Logo.wine.png', 'alt' => 'Bulgari' ),
+                array( 'file' => 'logos/hospitality/white/emaar.png', 'alt' => 'Emaar' ),
+                array( 'file' => 'logos/hospitality/white/ennis.png', 'alt' => 'Ennis' ),
+                array( 'file' => 'logos/hospitality/white/hotel10.png', 'alt' => 'Hotel partner' ),
+                array( 'file' => 'logos/hospitality/white/kerz.png', 'alt' => 'Kerzner' ),
+                array( 'file' => 'logos/hospitality/white/mandrian.png', 'alt' => 'Mandarin Oriental' ),
+                array( 'file' => 'logos/hospitality/white/minnor.png', 'alt' => 'Minor Hotels' ),
+              );
+
+              foreach ( $hospitality_logos as $index => $logo ) :
+                ?>
+                <span class="hospitality__marquee-logo" style="--logo-index: <?php echo esc_attr( $index ); ?>;">
+                  <img
+                    src="<?php echo esc_url( intercoil_asset_uri( $logo['file'] ) ); ?>"
+                    alt="<?php echo esc_attr( $logo['alt'] ); ?>"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </span>
+              <?php endforeach; ?>
+            </div>
+          </div>
         </div>
       </div>
     </section>

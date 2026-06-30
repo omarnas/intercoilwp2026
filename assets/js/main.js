@@ -122,6 +122,7 @@
       const target = parseInt(valueEl.dataset.statValue, 10);
       if (!target || reducedMotion) {
         setFinalValue(item);
+        item.classList.add('is-counted');
         return;
       }
 
@@ -141,6 +142,7 @@
           requestAnimationFrame(frame);
         } else {
           valueEl.textContent = String(target);
+          item.classList.add('is-counted');
         }
       }
 
@@ -155,7 +157,7 @@
     if (reducedMotion) {
       items.forEach(function (item) {
         setFinalValue(item);
-        item.classList.add('is-revealed');
+        item.classList.add('is-revealed', 'is-counted');
       });
       return;
     }

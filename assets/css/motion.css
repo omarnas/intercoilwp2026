@@ -126,7 +126,7 @@
 
 .brand-panel:hover .brand-panel__overlay {
   opacity: 1;
-  filter: brightness(0.9);
+  filter: brightness(1);
 }
 
 .brand-panel__logo {
@@ -143,7 +143,7 @@
 }
 
 .collection-tile:hover .collection-tile__overlay {
-  background: linear-gradient(180deg, transparent 20%, rgba(0, 8, 56, 0.88) 100%);
+  background: linear-gradient(180deg, transparent 28%, rgba(0, 8, 56, 0.62) 100%);
 }
 
 .collection-tile__img {
@@ -209,16 +209,8 @@
 .hospitality__marquee-wrap.is-logos-revealed .hospitality__marquee-logo {
   opacity: 1;
   transform: translateY(0);
+  transition-delay: calc(var(--logo-index, 0) * 0.05s);
 }
-
-.hospitality__marquee-wrap.is-logos-revealed .hospitality__marquee-logo:nth-child(1) { transition-delay: 0s; }
-.hospitality__marquee-wrap.is-logos-revealed .hospitality__marquee-logo:nth-child(2) { transition-delay: 0.06s; }
-.hospitality__marquee-wrap.is-logos-revealed .hospitality__marquee-logo:nth-child(3) { transition-delay: 0.12s; }
-.hospitality__marquee-wrap.is-logos-revealed .hospitality__marquee-logo:nth-child(4) { transition-delay: 0.18s; }
-.hospitality__marquee-wrap.is-logos-revealed .hospitality__marquee-logo:nth-child(5) { transition-delay: 0.24s; }
-.hospitality__marquee-wrap.is-logos-revealed .hospitality__marquee-logo:nth-child(6) { transition-delay: 0.3s; }
-.hospitality__marquee-wrap.is-logos-revealed .hospitality__marquee-logo:nth-child(7) { transition-delay: 0.36s; }
-.hospitality__marquee-wrap.is-logos-revealed .hospitality__marquee-logo:nth-child(8) { transition-delay: 0.42s; }
 
 /* ── Stats section stacking ── */
 .stats__ambient {
@@ -228,6 +220,61 @@
 .stats__grid {
   position: relative;
   z-index: 1;
+}
+
+/* ── Stats — premium hover after count-up completes ── */
+.stats__item.is-counted {
+  transition: transform 0.65s var(--ease-luxury);
+}
+
+.stats__item.is-counted::before {
+  content: '';
+  position: absolute;
+  inset: 8% 4%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(186, 223, 255, 0.14) 0%, transparent 72%);
+  opacity: 0;
+  transition: opacity 0.65s var(--ease-luxury);
+  pointer-events: none;
+}
+
+.stats__item.is-counted:hover {
+  transform: translateY(-5px);
+}
+
+.stats__item.is-counted:hover::before {
+  opacity: 1;
+}
+
+.stats__item.is-counted .stats__figure {
+  transition:
+    transform 0.65s var(--ease-luxury),
+    filter 0.65s var(--ease-luxury);
+}
+
+.stats__item.is-counted .stats__value,
+.stats__item.is-counted .stats__suffix {
+  transition: filter 0.65s var(--ease-luxury);
+}
+
+.stats__item.is-counted:hover .stats__figure {
+  transform: scale(1.03);
+}
+
+.stats__item.is-counted:hover .stats__value,
+.stats__item.is-counted:hover .stats__suffix {
+  filter: brightness(1.14);
+}
+
+.stats__item.is-counted .stats__label {
+  transition:
+    color 0.65s var(--ease-luxury),
+    transform 0.65s var(--ease-luxury);
+}
+
+.stats__item.is-counted:hover .stats__label {
+  color: rgba(255, 255, 255, 0.88);
+  transform: translateY(2px);
 }
 
 /* ── Manufacturing certs — wall of trust ── */
@@ -279,7 +326,13 @@
   .hospitality__marquee-logo,
   .hero-carousel__slide.is-active .hero-carousel__img,
   .hero__ambient,
-  .stats__ambient {
+  .stats__ambient,
+  .stats__item.is-counted,
+  .stats__item.is-counted::before,
+  .stats__item.is-counted .stats__number,
+  .stats__item.is-counted .stats__suffix,
+  .stats__item.is-counted .stats__label,
+  .brand-statement__heading {
     animation: none !important;
     transition: none !important;
     clip-path: none !important;
