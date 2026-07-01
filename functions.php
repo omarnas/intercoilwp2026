@@ -136,6 +136,19 @@ function intercoil_enqueue_assets() {
 		intercoil_file_version( $theme_dir . '/assets/js/motion.js' ),
 		true
 	);
+
+	if ( is_page_template( array(
+		'page-templates/template-our-legacy.php',
+		'page-templates/template-sustainability.php',
+		'page-templates/template-iso-certificates.php',
+	) ) ) {
+		wp_enqueue_style(
+			'intercoil-inner-pages',
+			$theme_uri . '/assets/css/inner-pages.css',
+			array( 'intercoil-main' ),
+			intercoil_file_version( $theme_dir . '/assets/css/inner-pages.css' )
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'intercoil_enqueue_assets' );
 
