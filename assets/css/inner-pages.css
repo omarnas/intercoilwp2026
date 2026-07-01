@@ -1381,6 +1381,7 @@
 
 /* ════════════════════════════════════════════════════════════
    ISO CERTIFICATES — page-specific
+   Editorial layout aligned with Our Legacy + homepage manufacturing.
    ════════════════════════════════════════════════════════════ */
 
 .intercoil-inner-page.iso-page .iso-hero .inner-hero__img {
@@ -1394,60 +1395,49 @@
   line-height: 0.95;
 }
 
+/* — Intro — */
 .intercoil-inner-page .iso-intro {
+  position: relative;
   padding: var(--inner-pad) 0;
   background: var(--color-white);
+  overflow: hidden;
+}
+
+.intercoil-inner-page .iso-intro__watermark {
+  position: absolute;
+  top: clamp(24px, 6vw, 80px);
+  right: clamp(-20px, -2vw, 40px);
+  font-size: clamp(8rem, 22vw, 18rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: rgba(0, 31, 140, 0.05);
+  pointer-events: none;
+  user-select: none;
 }
 
 .intercoil-inner-page .iso-intro__layout {
+  position: relative;
+  z-index: 1;
   display: grid;
-  gap: clamp(48px, 8vw, 90px);
+  gap: clamp(48px, 8vw, 100px);
   align-items: center;
 }
 
 @media (min-width: 1024px) {
   .intercoil-inner-page .iso-intro__layout {
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    gap: clamp(64px, 9vw, 110px);
+    gap: clamp(64px, 9vw, 120px);
   }
 }
 
 .intercoil-inner-page .iso-intro__visual {
   position: relative;
-  min-height: clamp(360px, 50vw, 520px);
-}
-
-.intercoil-inner-page .iso-cert-wall {
-  position: absolute;
-  z-index: 3;
-  top: 0;
-  right: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  width: min(52%, 280px);
-}
-
-.intercoil-inner-page .iso-cert-wall__item {
-  margin: 0;
-  padding: 12px;
-  border-radius: 12px;
-  background: var(--color-white);
-  box-shadow: 0 16px 40px rgba(0, 8, 56, 0.1);
-}
-
-.intercoil-inner-page .iso-cert-wall__item img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+  min-height: clamp(380px, 52vw, 580px);
 }
 
 .intercoil-inner-page .iso-intro__figure {
   margin: 0;
-  width: 78%;
-  aspect-ratio: 4 / 5;
-  margin-left: auto;
   overflow: hidden;
   border-radius: var(--radius-img);
   box-shadow: 0 32px 80px rgba(0, 8, 56, 0.14);
@@ -1460,170 +1450,374 @@
   object-fit: cover;
 }
 
-.intercoil-inner-page .iso-intro__lead {
-  margin: 0;
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
-  line-height: 1.55;
+.intercoil-inner-page .iso-intro__figure--primary {
+  position: relative;
+  z-index: 2;
+  width: 82%;
+  aspect-ratio: 4 / 5;
+  margin-left: auto;
+}
+
+.intercoil-inner-page .iso-intro__figure--accent {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  bottom: 0;
+  width: min(48%, 260px);
+  aspect-ratio: 1;
+  box-shadow: 0 28px 72px rgba(0, 8, 56, 0.2);
+}
+
+.intercoil-inner-page .iso-intro__seal {
+  position: absolute;
+  z-index: 4;
+  top: clamp(12px, 3vw, 28px);
+  right: clamp(8px, 2vw, 24px);
+  width: clamp(88px, 12vw, 120px);
+  padding: 14px;
+  border-radius: 50%;
+  background: var(--color-white);
+  box-shadow: 0 20px 56px rgba(0, 8, 56, 0.18);
+}
+
+.intercoil-inner-page .iso-intro__seal img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.intercoil-inner-page .iso-intro__title {
+  margin: 0 0 clamp(20px, 3vw, 28px);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   color: var(--color-navy);
 }
 
-.intercoil-inner-page .iso-block {
-  padding: var(--inner-pad) 0;
+.intercoil-inner-page .iso-intro__lead {
+  margin: 0 0 clamp(36px, 5vw, 48px);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.65;
+  color: rgba(0, 8, 56, 0.78);
 }
 
-.intercoil-inner-page .iso-block--awards {
+.intercoil-inner-page .iso-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 2vw, 16px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .intercoil-inner-page .iso-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.intercoil-inner-page .iso-stats__item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: clamp(18px, 2.5vw, 24px);
+  border-radius: calc(var(--radius-card) - 4px);
   background: var(--color-off-white);
+  box-shadow: 0 10px 32px rgba(0, 8, 56, 0.06);
+  transition: transform 0.45s var(--inner-ease), box-shadow 0.45s var(--inner-ease);
 }
 
-.intercoil-inner-page .iso-block--certs {
-  position: relative;
-  background: var(--color-white);
-  overflow: hidden;
+.intercoil-inner-page .iso-stats__item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 8, 56, 0.08);
 }
 
-.intercoil-inner-page .iso-block--records {
-  background: var(--color-off-white);
+.intercoil-inner-page .iso-stats__value {
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
 }
 
-.intercoil-inner-page .iso-block__title {
-  margin: 0 0 clamp(40px, 6vw, 64px);
-  font-size: clamp(2rem, 4.5vw, 3.25rem);
+.intercoil-inner-page .iso-stats__label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0, 8, 56, 0.42);
+}
+
+/* — Section titles — */
+.intercoil-inner-page .iso-section-title {
+  margin: 0 0 clamp(48px, 7vw, 72px);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.03em;
   color: var(--color-navy);
 }
 
+.intercoil-inner-page .iso-section-title--center {
+  text-align: center;
+}
+
+/* — Awards (editorial list) — */
 .intercoil-inner-page .iso-awards {
-  display: grid;
-  gap: clamp(16px, 2.5vw, 20px);
+  position: relative;
+  padding: var(--inner-pad) 0;
+  background: var(--color-off-white);
+  overflow: hidden;
+}
+
+.intercoil-inner-page .iso-awards .container {
+  position: relative;
+  z-index: 1;
+}
+
+.intercoil-inner-page .iso-awards__list {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-@media (min-width: 768px) {
-  .intercoil-inner-page .iso-awards {
+.intercoil-inner-page .iso-awards__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(20px, 4vw, 48px);
+  align-items: baseline;
+  padding: clamp(28px, 4vw, 40px) 0;
+  border-top: 1px solid rgba(0, 8, 56, 0.1);
+}
+
+.intercoil-inner-page .iso-awards__item:last-child {
+  border-bottom: 1px solid rgba(0, 8, 56, 0.1);
+}
+
+.intercoil-inner-page .iso-awards__index {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: rgba(0, 31, 140, 0.2);
+  line-height: 1;
+}
+
+.intercoil-inner-page .iso-awards__name {
+  margin: 0;
+  max-width: 42ch;
+  font-size: clamp(1.15rem, 2vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: var(--color-navy);
+}
+
+@media (min-width: 900px) {
+  .intercoil-inner-page .iso-awards__item {
+    grid-template-columns: clamp(64px, 8vw, 100px) 1fr;
+    gap: clamp(32px, 5vw, 72px);
+  }
+
+  .intercoil-inner-page .iso-awards__name {
+    max-width: none;
+    font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+  }
+}
+
+/* — Certifications (dark band, homepage manufacturing style) — */
+.intercoil-inner-page .iso-certs {
+  position: relative;
+  padding: var(--inner-pad) 0;
+  background: var(--color-navy);
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.intercoil-inner-page .iso-certs__ambient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 15% 50%, rgba(0, 160, 243, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 85% 30%, rgba(141, 183, 255, 0.08) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.intercoil-inner-page .iso-certs__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(48px, 7vw, 80px);
+}
+
+@media (min-width: 1024px) {
+  .intercoil-inner-page .iso-certs__inner {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: start;
+    gap: clamp(64px, 8vw, 100px);
+  }
+}
+
+.intercoil-inner-page .iso-certs__heading {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--color-white);
+}
+
+.intercoil-inner-page .iso-certs__grid {
+  display: grid;
+  gap: clamp(14px, 1.8vw, 20px);
+}
+
+@media (min-width: 640px) {
+  .intercoil-inner-page .iso-certs__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.intercoil-inner-page .iso-award {
-  padding: clamp(24px, 3.5vw, 32px);
-  border-radius: var(--radius-card);
-  background: var(--color-white);
-  box-shadow: 0 12px 40px rgba(0, 8, 56, 0.06);
-  transition: transform 0.45s var(--inner-ease), box-shadow 0.45s var(--inner-ease);
+.intercoil-inner-page .iso-certs__item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: clamp(14px, 1.6vw, 18px);
+  padding: clamp(18px, 2.2vw, 24px);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: background 0.4s ease, border-color 0.4s ease, transform 0.45s var(--inner-ease);
 }
 
-.intercoil-inner-page .iso-award:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 52px rgba(0, 8, 56, 0.1);
+.intercoil-inner-page .iso-certs__item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-3px);
 }
 
-.intercoil-inner-page .iso-award__title {
+.intercoil-inner-page .iso-certs__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: clamp(56px, 6vw, 72px);
+  height: clamp(56px, 6vw, 72px);
   margin: 0;
-  font-size: clamp(1rem, 1.35vw, 1.125rem);
-  font-weight: 600;
-  line-height: 1.5;
-  color: var(--color-navy);
+  padding: 5px;
+  border-radius: 50%;
+  background: var(--color-white);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(0, 8, 56, 0.04);
 }
 
-.intercoil-inner-page .iso-certs {
+.intercoil-inner-page .iso-certs__mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.intercoil-inner-page .iso-certs__text {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  font-size: clamp(0.9rem, 1.05vw, 0.975rem);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+/* — Guinness World Records — */
+.intercoil-inner-page .iso-records {
+  padding: var(--inner-pad) 0;
+  background: var(--color-white);
+}
+
+.intercoil-inner-page .iso-records__grid {
   display: grid;
   gap: clamp(24px, 3.5vw, 32px);
 }
 
-@media (min-width: 768px) {
-  .intercoil-inner-page .iso-certs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.intercoil-inner-page .iso-cert-card {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(20px, 3vw, 28px);
-  padding: clamp(28px, 4vw, 36px);
-  border-radius: var(--radius-card);
-  background: var(--color-off-white);
-  box-shadow: 0 16px 48px rgba(0, 8, 56, 0.06);
-  transition: transform 0.5s var(--inner-ease), box-shadow 0.5s var(--inner-ease);
-}
-
-.intercoil-inner-page .iso-cert-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 28px 64px rgba(0, 8, 56, 0.1);
-}
-
-.intercoil-inner-page .iso-cert-card__mark {
-  margin: 0;
-  padding: 16px;
-  border-radius: 12px;
-  background: var(--color-white);
-  box-shadow: 0 8px 24px rgba(0, 8, 56, 0.06);
-}
-
-.intercoil-inner-page .iso-cert-card__mark img {
-  display: block;
-  width: 100%;
-  max-height: 120px;
-  object-fit: contain;
-}
-
-.intercoil-inner-page .iso-cert-card__text {
-  margin: 0;
-  font-size: clamp(0.975rem, 1.15vw, 1.05rem);
-  line-height: 1.75;
-  color: rgba(0, 8, 56, 0.72);
-}
-
-.intercoil-inner-page .iso-records {
-  display: grid;
-  gap: clamp(20px, 3vw, 28px);
-}
-
 @media (min-width: 900px) {
-  .intercoil-inner-page .iso-records {
+  .intercoil-inner-page .iso-records__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 .intercoil-inner-page .iso-record {
-  position: relative;
-  padding: clamp(36px, 5vw, 48px) clamp(28px, 4vw, 36px);
-  border-radius: var(--radius-card);
-  background: var(--color-white);
-  box-shadow: 0 20px 56px rgba(0, 8, 56, 0.08);
-  transition: transform 0.5s var(--inner-ease), box-shadow 0.5s var(--inner-ease);
+  display: flex;
+  flex-direction: column;
+  border-radius: calc(var(--radius-card) + 4px);
+  background: var(--color-off-white);
+  box-shadow: 0 28px 80px rgba(0, 8, 56, 0.08);
+  overflow: hidden;
+  transition: transform 0.55s var(--inner-ease), box-shadow 0.55s var(--inner-ease);
 }
 
 .intercoil-inner-page .iso-record:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 32px 72px rgba(0, 8, 56, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 40px 100px rgba(0, 8, 56, 0.14);
 }
 
-.intercoil-inner-page .iso-record__num {
-  display: block;
-  margin-bottom: 16px;
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.06em;
-  color: rgba(0, 31, 140, 0.12);
+.intercoil-inner-page .iso-record__media {
+  position: relative;
+  height: clamp(200px, 26vw, 280px);
+  overflow: hidden;
+}
+
+.intercoil-inner-page .iso-record__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--inner-ease);
+}
+
+.intercoil-inner-page .iso-record:hover .iso-record__media img {
+  transform: scale(1.06);
+}
+
+.intercoil-inner-page .iso-record__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 25%, rgba(0, 8, 56, 0.72) 100%);
+}
+
+.intercoil-inner-page .iso-record__index {
+  position: absolute;
+  left: clamp(20px, 3vw, 28px);
+  bottom: clamp(18px, 3vw, 24px);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+  background: rgba(0, 8, 56, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .intercoil-inner-page .iso-record__title {
   margin: 0;
-  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  padding: clamp(24px, 3.5vw, 32px);
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
   font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1.35;
   color: var(--color-navy);
 }
 
+/* — Closing — */
 .intercoil-inner-page .iso-closing {
   position: relative;
-  min-height: clamp(320px, 42vh, 440px);
+  min-height: clamp(460px, 58vh, 640px);
   display: flex;
   align-items: center;
   color: var(--color-white);
@@ -1640,20 +1834,32 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .intercoil-inner-page .iso-closing__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(125deg, rgba(0, 8, 56, 0.9) 0%, rgba(0, 31, 140, 0.82) 50%, rgba(0, 8, 56, 0.92) 100%);
+  background: linear-gradient(125deg, rgba(0, 8, 56, 0.92) 0%, rgba(0, 31, 140, 0.82) 45%, rgba(0, 8, 56, 0.9) 100%);
 }
 
 .intercoil-inner-page .iso-closing__inner {
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: clamp(72px, 10vw, 100px) 0;
+  padding: clamp(90px, 13vw, 130px) 0;
   text-align: center;
+}
+
+.intercoil-inner-page .iso-closing__quote {
+  margin: 0 auto clamp(40px, 6vw, 56px);
+  max-width: 22ch;
+  font-size: clamp(1.75rem, 4.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  border: none;
+  padding: 0;
 }
 
 .intercoil-inner-page .iso-closing__actions {
@@ -1709,14 +1915,21 @@
 }
 
 @media (max-width: 767px) {
-  .intercoil-inner-page .iso-intro__figure {
+  .intercoil-inner-page .iso-intro__figure--primary {
     width: 100%;
   }
 
-  .intercoil-inner-page .iso-cert-wall {
-    position: relative;
-    width: 100%;
-    margin-bottom: 20px;
+  .intercoil-inner-page .iso-intro__figure--accent {
+    width: 44%;
+  }
+
+  .intercoil-inner-page .iso-intro__seal {
+    width: 72px;
+    padding: 10px;
+  }
+
+  .intercoil-inner-page .iso-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .intercoil-inner-page .iso-closing__actions {
@@ -1730,10 +1943,802 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .intercoil-inner-page .iso-award:hover,
-  .intercoil-inner-page .iso-cert-card:hover,
+  .intercoil-inner-page .iso-stats__item:hover,
+  .intercoil-inner-page .iso-certs__item:hover,
   .intercoil-inner-page .iso-record:hover,
   .intercoil-inner-page .iso-btn:hover {
+    transform: none;
+  }
+
+  .intercoil-inner-page .iso-record:hover .iso-record__media img {
+    transform: none;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   COMFORT COLLECTIONS — shared inner pages
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.comfort-page .comfort-hero .inner-hero__img {
+  filter: none;
+  animation: none;
+  transform: scale(1.06);
+}
+
+.intercoil-inner-page.comfort-page .comfort-hero .inner-hero__title--simple {
+  max-width: 14ch;
+  font-size: clamp(2.5rem, 6.5vw, 4.75rem);
+  line-height: 1.02;
+}
+
+.intercoil-inner-page.comfort-page--beds .comfort-hero .inner-hero__title--simple,
+.intercoil-inner-page.comfort-page--foam .comfort-hero .inner-hero__title--simple {
+  max-width: 16ch;
+}
+
+/* — Intro — */
+.intercoil-inner-page .comfort-intro {
+  position: relative;
+  padding: var(--inner-pad) 0;
+  background: var(--color-white);
+  overflow: hidden;
+}
+
+.intercoil-inner-page .comfort-intro__watermark {
+  position: absolute;
+  top: 8%;
+  right: clamp(-4%, 2vw, 6%);
+  font-size: clamp(7rem, 22vw, 16rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: rgba(0, 31, 140, 0.04);
+  pointer-events: none;
+  user-select: none;
+}
+
+.intercoil-inner-page .comfort-intro__layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: clamp(48px, 8vw, 100px);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .intercoil-inner-page .comfort-intro__layout {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(64px, 9vw, 120px);
+  }
+}
+
+.intercoil-inner-page .comfort-intro__visual {
+  position: relative;
+  min-height: clamp(380px, 52vw, 580px);
+}
+
+.intercoil-inner-page .comfort-intro__figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-img);
+  box-shadow: 0 32px 80px rgba(0, 8, 56, 0.14);
+}
+
+.intercoil-inner-page .comfort-intro__figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intercoil-inner-page .comfort-intro__figure--primary {
+  position: relative;
+  z-index: 2;
+  width: 82%;
+  aspect-ratio: 4 / 5;
+  margin-left: auto;
+}
+
+.intercoil-inner-page .comfort-intro__figure--accent {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  bottom: 0;
+  width: min(48%, 260px);
+  aspect-ratio: 1;
+  box-shadow: 0 28px 72px rgba(0, 8, 56, 0.2);
+}
+
+.intercoil-inner-page .comfort-intro__lead {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  line-height: 1.65;
+  color: rgba(0, 8, 56, 0.78);
+}
+
+.intercoil-inner-page .comfort-intro__prose {
+  margin: clamp(24px, 3.5vw, 32px) 0 0;
+  font-size: clamp(1rem, 1.35vw, 1.125rem);
+  line-height: 1.85;
+  color: rgba(0, 8, 56, 0.68);
+}
+
+.intercoil-inner-page .comfort-section-title {
+  margin: 0 0 clamp(48px, 7vw, 72px);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page .comfort-section-title--center {
+  text-align: center;
+}
+
+/* — Mattress gallery (visual strip) — */
+.intercoil-inner-page .mattress-gallery {
+  padding: 0;
+  background: var(--color-navy);
+}
+
+.intercoil-inner-page .mattress-gallery__layout {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .intercoil-inner-page .mattress-gallery__layout {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    grid-template-rows: repeat(2, minmax(220px, 34vh));
+  }
+}
+
+.intercoil-inner-page .mattress-gallery__item {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  min-height: clamp(220px, 32vh, 380px);
+}
+
+@media (min-width: 768px) {
+  .intercoil-inner-page .mattress-gallery__item--hero {
+    grid-row: span 2;
+    min-height: 0;
+  }
+}
+
+.intercoil-inner-page .mattress-gallery__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--inner-ease);
+}
+
+@media (hover: hover) {
+  .intercoil-inner-page .mattress-gallery__item:hover img {
+    transform: scale(1.05);
+  }
+}
+
+/* — Mattress brand showcase (homepage panel style) — */
+.intercoil-inner-page .mattress-showcase {
+  padding: 0;
+  background: var(--color-navy);
+}
+
+.intercoil-inner-page .mattress-showcase__header {
+  padding: clamp(56px, 8vw, 96px) 0 clamp(40px, 6vw, 64px);
+  text-align: center;
+}
+
+.intercoil-inner-page .mattress-showcase__header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.intercoil-inner-page .mattress-showcase__header .section-label {
+  margin-bottom: 0;
+}
+
+.intercoil-inner-page .mattress-showcase__heading {
+  margin: 0;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--color-white);
+}
+
+.intercoil-inner-page .mattress-showcase__subheading {
+  margin: 0;
+  max-width: 42ch;
+  font-size: clamp(1rem, 1.35vw, 1.125rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.intercoil-inner-page .mattress-showcase__panels {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.intercoil-inner-page .mattress-panel {
+  position: relative;
+  width: 100%;
+  min-height: clamp(480px, 72vh, 820px);
+  overflow: hidden;
+  background: var(--color-royal);
+}
+
+.intercoil-inner-page .mattress-panel__bg {
+  position: absolute;
+  inset: -15%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 1.4s var(--inner-ease);
+}
+
+.intercoil-inner-page .mattress-panel:hover .mattress-panel__bg {
+  transform: scale(1.04);
+}
+
+.intercoil-inner-page .mattress-panel__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(0, 8, 56, 0.68) 0%,
+    rgba(0, 31, 140, 0.38) 45%,
+    rgba(0, 8, 56, 0.14) 100%
+  );
+  transition: opacity 0.45s var(--inner-ease);
+}
+
+.intercoil-inner-page .mattress-panel--reverse .mattress-panel__overlay {
+  background: linear-gradient(
+    -105deg,
+    rgba(0, 8, 56, 0.68) 0%,
+    rgba(0, 31, 140, 0.38) 45%,
+    rgba(0, 8, 56, 0.14) 100%
+  );
+}
+
+.intercoil-inner-page .mattress-panel--intercoil .mattress-panel__overlay {
+  background: linear-gradient(
+    105deg,
+    rgba(0, 8, 56, 0.32) 0%,
+    rgba(0, 31, 140, 0.14) 45%,
+    rgba(0, 8, 56, 0.03) 100%
+  );
+}
+
+.intercoil-inner-page .mattress-panel__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(480px, 72vh, 820px);
+  max-width: min(1280px, 100%);
+  margin-inline: auto;
+  padding: clamp(48px, 6vw, 96px) clamp(20px, 4vw, 40px);
+}
+
+.intercoil-inner-page .mattress-panel--reverse .mattress-panel__inner {
+  justify-content: flex-end;
+}
+
+.intercoil-inner-page .mattress-panel__index {
+  position: absolute;
+  top: clamp(24px, 3.5vw, 48px);
+  right: clamp(12px, 2vw, 24px);
+  z-index: 2;
+  font-size: clamp(56px, 10vw, 160px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  user-select: none;
+}
+
+.intercoil-inner-page .mattress-panel--reverse .mattress-panel__index {
+  right: auto;
+  left: clamp(12px, 2vw, 24px);
+}
+
+.intercoil-inner-page .mattress-panel__content {
+  position: relative;
+  max-width: min(560px, 90%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.intercoil-inner-page .mattress-panel--reverse .mattress-panel__content {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.intercoil-inner-page .mattress-panel__logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 280px;
+  height: clamp(56px, 6.5vw, 76px);
+  margin-bottom: clamp(20px, 2.5vw, 32px);
+  flex-shrink: 0;
+}
+
+.intercoil-inner-page .mattress-panel--reverse .mattress-panel__logo-wrap {
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.intercoil-inner-page .mattress-panel__logo-wrap--ghalya {
+  height: clamp(72px, 8.5vw, 100px);
+}
+
+.intercoil-inner-page .mattress-panel__logo-wrap--beautyrest {
+  max-width: clamp(360px, 44vw, 520px);
+  height: clamp(68px, 8vw, 96px);
+}
+
+.intercoil-inner-page .mattress-panel__logo-wrap--dolidol {
+  max-width: clamp(200px, 24vw, 240px);
+  height: clamp(48px, 5.5vw, 64px);
+}
+
+.intercoil-inner-page .mattress-panel__logo {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.4));
+}
+
+.intercoil-inner-page .mattress-panel--reverse .mattress-panel__logo {
+  object-position: right center;
+}
+
+.intercoil-inner-page .mattress-panel__tagline {
+  margin: 0 0 12px;
+  font-size: clamp(12px, 1vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.intercoil-inner-page .mattress-panel__desc {
+  margin: 0 0 clamp(28px, 3vw, 40px);
+  max-width: 480px;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.intercoil-inner-page .mattress-panel__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.35);
+  font-size: clamp(14px, 1.1vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: gap 0.35s var(--inner-ease), border-color 0.35s var(--inner-ease), color 0.35s var(--inner-ease);
+}
+
+.intercoil-inner-page .mattress-panel__cta svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.35s var(--inner-ease);
+}
+
+.intercoil-inner-page .mattress-panel:hover .mattress-panel__cta {
+  gap: 14px;
+  border-color: var(--color-accent);
+  color: var(--color-bright);
+}
+
+.intercoil-inner-page .mattress-panel:hover .mattress-panel__cta svg {
+  transform: translateX(4px);
+}
+
+/* Mattresses page — tighter hero title */
+.intercoil-inner-page.comfort-page--mattresses .comfort-hero .inner-hero__title--simple {
+  max-width: 12ch;
+}
+
+/* — Brand grid (Mattresses) — */
+.intercoil-inner-page .comfort-brands {
+  position: relative;
+  padding: var(--inner-pad) 0;
+  background: var(--color-off-white);
+  overflow: hidden;
+}
+
+.intercoil-inner-page .comfort-brands .container {
+  position: relative;
+  z-index: 1;
+}
+
+.intercoil-inner-page .comfort-brands__grid {
+  display: grid;
+  gap: clamp(24px, 3.5vw, 32px);
+}
+
+@media (min-width: 768px) {
+  .intercoil-inner-page .comfort-brands__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .intercoil-inner-page .comfort-brands__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .intercoil-inner-page .comfort-brand:nth-child(4),
+  .intercoil-inner-page .comfort-brand:nth-child(5) {
+    grid-column: span 1;
+  }
+}
+
+.intercoil-inner-page .comfort-brand {
+  display: flex;
+  flex-direction: column;
+  border-radius: calc(var(--radius-card) + 4px);
+  background: var(--color-white);
+  box-shadow: 0 28px 80px rgba(0, 8, 56, 0.08);
+  overflow: hidden;
+  transition: transform 0.55s var(--inner-ease), box-shadow 0.55s var(--inner-ease);
+}
+
+.intercoil-inner-page .comfort-brand:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 40px 100px rgba(0, 8, 56, 0.14);
+}
+
+.intercoil-inner-page .comfort-brand__media {
+  position: relative;
+  height: clamp(180px, 22vw, 240px);
+  overflow: hidden;
+}
+
+.intercoil-inner-page .comfort-brand__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--inner-ease);
+}
+
+.intercoil-inner-page .comfort-brand:hover .comfort-brand__media img {
+  transform: scale(1.06);
+}
+
+.intercoil-inner-page .comfort-brand__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 20%, rgba(0, 8, 56, 0.72) 100%);
+}
+
+.intercoil-inner-page .comfort-brand__index {
+  position: absolute;
+  left: clamp(16px, 2.5vw, 22px);
+  bottom: clamp(14px, 2.5vw, 20px);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+  background: rgba(0, 8, 56, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.intercoil-inner-page .comfort-brand__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: clamp(24px, 3.5vw, 32px);
+  text-align: center;
+}
+
+.intercoil-inner-page .comfort-brand__logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 160px;
+  min-height: 48px;
+}
+
+.intercoil-inner-page .comfort-brand__logo {
+  display: block;
+  max-width: 100%;
+  max-height: 48px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.intercoil-inner-page .comfort-brand__logo-wrap--beautyrest .comfort-brand__logo {
+  max-height: 40px;
+}
+
+.intercoil-inner-page .comfort-brand__logo-wrap--ghalya .comfort-brand__logo {
+  max-height: 56px;
+}
+
+.intercoil-inner-page .comfort-brand__logo-wrap--dolidol .comfort-brand__logo {
+  max-height: 44px;
+}
+
+.intercoil-inner-page .comfort-brand__name {
+  margin: 0;
+  font-size: clamp(1rem, 1.25vw, 1.1rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-navy);
+}
+
+/* — Pillars — */
+.intercoil-inner-page .comfort-pillars {
+  position: relative;
+  padding: var(--inner-pad) 0;
+  background: var(--color-off-white);
+  overflow: hidden;
+}
+
+.intercoil-inner-page .comfort-pillars .container {
+  position: relative;
+  z-index: 1;
+}
+
+.intercoil-inner-page .comfort-pillars__grid {
+  display: grid;
+  gap: clamp(28px, 4vw, 40px);
+}
+
+@media (min-width: 900px) {
+  .intercoil-inner-page .comfort-pillars__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.intercoil-inner-page .comfort-pillar {
+  display: flex;
+  flex-direction: column;
+  border-radius: calc(var(--radius-card) + 4px);
+  background: var(--color-white);
+  box-shadow: 0 28px 80px rgba(0, 8, 56, 0.08);
+  overflow: hidden;
+  transition: transform 0.55s var(--inner-ease), box-shadow 0.55s var(--inner-ease);
+}
+
+.intercoil-inner-page .comfort-pillar:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 40px 100px rgba(0, 8, 56, 0.14);
+}
+
+.intercoil-inner-page .comfort-pillar__media {
+  position: relative;
+  height: clamp(200px, 26vw, 280px);
+  overflow: hidden;
+}
+
+.intercoil-inner-page .comfort-pillar__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--inner-ease);
+}
+
+.intercoil-inner-page .comfort-pillar:hover .comfort-pillar__media img {
+  transform: scale(1.06);
+}
+
+.intercoil-inner-page .comfort-pillar__shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(0, 8, 56, 0.65) 100%);
+}
+
+.intercoil-inner-page .comfort-pillar__index {
+  position: absolute;
+  left: clamp(20px, 3vw, 28px);
+  bottom: clamp(18px, 3vw, 24px);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-white);
+  background: rgba(0, 8, 56, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.intercoil-inner-page .comfort-pillar__body {
+  padding: clamp(28px, 4vw, 40px);
+}
+
+.intercoil-inner-page .comfort-pillar__title {
+  margin: 0 0 clamp(14px, 2vw, 18px);
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page .comfort-pillar__text {
+  margin: 0;
+  font-size: clamp(0.975rem, 1.15vw, 1.05rem);
+  line-height: 1.85;
+  color: rgba(0, 8, 56, 0.68);
+}
+
+/* — Closing — */
+.intercoil-inner-page .comfort-closing {
+  position: relative;
+  min-height: clamp(440px, 55vh, 600px);
+  display: flex;
+  align-items: center;
+  color: var(--color-white);
+  overflow: hidden;
+}
+
+.intercoil-inner-page .comfort-closing__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.intercoil-inner-page .comfort-closing__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.intercoil-inner-page .comfort-closing__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(125deg, rgba(0, 8, 56, 0.92) 0%, rgba(0, 31, 140, 0.82) 45%, rgba(0, 8, 56, 0.9) 100%);
+}
+
+.intercoil-inner-page .comfort-closing__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: clamp(90px, 13vw, 130px) 0;
+  text-align: center;
+}
+
+.intercoil-inner-page .comfort-closing__quote {
+  margin: 0 auto clamp(40px, 6vw, 56px);
+  max-width: 24ch;
+  font-size: clamp(1.75rem, 4.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  border: none;
+  padding: 0;
+}
+
+.intercoil-inner-page .comfort-closing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.intercoil-inner-page .comfort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: var(--radius-btn);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.4s var(--inner-ease), box-shadow 0.4s var(--inner-ease), background 0.4s ease;
+}
+
+.intercoil-inner-page .comfort-btn--primary {
+  background: var(--color-white);
+  color: var(--color-navy);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.intercoil-inner-page .comfort-btn--primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 52px rgba(0, 0, 0, 0.26);
+}
+
+.intercoil-inner-page .comfort-btn__arrow {
+  transition: transform 0.4s var(--inner-ease);
+}
+
+.intercoil-inner-page .comfort-btn--primary:hover .comfort-btn__arrow {
+  transform: translateX(4px);
+}
+
+.intercoil-inner-page .comfort-btn--ghost {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.intercoil-inner-page .comfort-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 767px) {
+  .intercoil-inner-page .comfort-intro__figure--primary {
+    width: 100%;
+  }
+
+  .intercoil-inner-page .comfort-intro__figure--accent {
+    width: 44%;
+  }
+
+  .intercoil-inner-page .comfort-closing__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .intercoil-inner-page .comfort-btn {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intercoil-inner-page .comfort-brand:hover,
+  .intercoil-inner-page .comfort-pillar:hover,
+  .intercoil-inner-page .comfort-btn:hover,
+  .intercoil-inner-page .mattress-panel:hover .mattress-panel__bg {
+    transform: none;
+  }
+
+  .intercoil-inner-page .comfort-brand:hover .comfort-brand__media img,
+  .intercoil-inner-page .comfort-pillar:hover .comfort-pillar__media img,
+  .intercoil-inner-page .mattress-gallery__item:hover img {
+    transform: none;
+  }
+
+  .intercoil-inner-page .mattress-panel:hover .mattress-panel__cta svg {
     transform: none;
   }
 }

@@ -17,6 +17,7 @@ require_once get_template_directory() . '/inc/hero.php';
 require_once get_template_directory() . '/inc/stats.php';
 require_once get_template_directory() . '/inc/nav-walker.php';
 require_once get_template_directory() . '/inc/default-nav.php';
+require_once get_template_directory() . '/inc/comfort-collections.php';
 
 /**
  * Theme setup.
@@ -137,10 +138,13 @@ function intercoil_enqueue_assets() {
 		true
 	);
 
-	if ( is_page_template( array(
-		'page-templates/template-our-legacy.php',
-		'page-templates/template-sustainability.php',
-		'page-templates/template-iso-certificates.php',
+	if ( is_page_template( array_merge(
+		array(
+			'page-templates/template-our-legacy.php',
+			'page-templates/template-sustainability.php',
+			'page-templates/template-iso-certificates.php',
+		),
+		intercoil_comfort_collection_templates()
 	) ) ) {
 		wp_enqueue_style(
 			'intercoil-inner-pages',

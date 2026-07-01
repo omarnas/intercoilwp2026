@@ -91,7 +91,7 @@ function intercoil_primary_menu_fallback() {
 			<button type="button" class="nav__link nav__trigger" aria-expanded="false" aria-haspopup="true"><?php echo esc_html( $group['title'] ); ?></button>
 			<ul class="nav__dropdown<?php echo esc_attr( $dropdown_class ); ?>" role="menu">
 				<?php foreach ( $group['links'] as $link ) : ?>
-					<li role="none"><a href="<?php echo esc_url( $placeholder ); ?>" class="nav__dropdown-link" role="menuitem"><?php echo esc_html( $link ); ?></a></li>
+					<li role="none"><a href="<?php echo esc_url( intercoil_default_nav_link_url( $link, $placeholder ) ); ?>" class="nav__dropdown-link" role="menuitem"><?php echo esc_html( $link ); ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 		</div>
@@ -179,7 +179,7 @@ function intercoil_mobile_menu_fallback() {
 			<button type="button" class="nav__mobile-trigger" aria-expanded="false"><?php echo esc_html( $group['title'] ); ?></button>
 			<ul class="nav__mobile-sub">
 				<?php foreach ( $group['links'] as $link ) : ?>
-					<li><a href="<?php echo esc_url( $placeholder ); ?>" class="nav__mobile-sublink"><?php echo esc_html( $link ); ?></a></li>
+					<li><a href="<?php echo esc_url( intercoil_default_nav_link_url( $link, $placeholder ) ); ?>" class="nav__mobile-sublink"><?php echo esc_html( $link ); ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 		</div>
