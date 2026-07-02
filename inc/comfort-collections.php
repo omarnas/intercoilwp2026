@@ -234,6 +234,11 @@ function intercoil_default_nav_link_url( $label, $placeholder ) {
 		return intercoil_brand_page_url( $brand_labels[ $label ] );
 	}
 
+	$industry_labels = intercoil_industry_nav_labels();
+	if ( isset( $industry_labels[ $label ] ) ) {
+		return intercoil_industry_page_url( $industry_labels[ $label ] );
+	}
+
 	if ( 'Our Brands' === $label ) {
 		return intercoil_brands_landing_url();
 	}

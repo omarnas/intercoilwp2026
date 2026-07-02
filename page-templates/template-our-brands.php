@@ -3,7 +3,7 @@
  * Template Name: Our Brands
  *
  * Portfolio landing page — introduces all Intercoil brands and links to
- * each brand inner page. Content comes from inc/brands.php (CMS later).
+ * each brand inner page.
  *
  * @package Intercoil
  */
@@ -12,18 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$brands   = intercoil_get_brands();
 $home_url = home_url( '/' );
-
-/*
- * The hero collage cycles through the strongest portfolio imagery —
- * one tile per brand family, replaced later by CMS-managed art.
- */
-$collage = array(
-	'images/photography/brands/intercoil-brand-new.jpg',
-	'images/photography/hospitality/luxury-resort-room-2026-03-20-01-01-12-utc.jpg',
-	'images/photography/brands/showroom.jpg',
-);
 
 get_header();
 ?>
@@ -33,16 +22,15 @@ get_header();
 	<header class="inner-hero inner-hero--tall brands-hero" aria-labelledby="brands-hero-heading">
 		<div class="inner-hero__bg" aria-hidden="true">
 			<div class="brands-hero__collage">
-				<?php foreach ( $collage as $collage_index => $collage_image ) : ?>
-					<div class="brands-hero__tile brands-hero__tile--<?php echo esc_attr( $collage_index + 1 ); ?>">
-						<img
-							src="<?php echo esc_url( intercoil_asset_uri( $collage_image ) ); ?>"
-							alt=""
-							loading="eager"
-							decoding="async"
-						/>
-					</div>
-				<?php endforeach; ?>
+				<div class="brands-hero__tile brands-hero__tile--1">
+					<img src="<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/intercoil-brand-new.jpg' ) ); ?>" alt="" loading="eager" decoding="async" />
+				</div>
+				<div class="brands-hero__tile brands-hero__tile--2">
+					<img src="<?php echo esc_url( intercoil_asset_uri( 'images/photography/hospitality/luxury-resort-room-2026-03-20-01-01-12-utc.jpg' ) ); ?>" alt="" loading="eager" decoding="async" />
+				</div>
+				<div class="brands-hero__tile brands-hero__tile--3">
+					<img src="<?php echo esc_url( intercoil_asset_uri( 'images/photography/brands/showroom.jpg' ) ); ?>" alt="" loading="eager" decoding="async" />
+				</div>
 			</div>
 			<div class="inner-hero__overlay"></div>
 			<div class="inner-hero__glow inner-hero__glow--left"></div>
@@ -63,16 +51,24 @@ get_header();
 
 		<nav class="brands-hero__marques" aria-label="Jump to a brand">
 			<div class="container brands-hero__marques-row">
-				<?php foreach ( $brands as $brand ) : ?>
-					<a class="brands-hero__marque" href="#brand-<?php echo esc_attr( $brand['key'] ); ?>">
-						<img
-							src="<?php echo esc_url( intercoil_asset_uri( $brand['logo'] ) ); ?>"
-							alt="<?php echo esc_attr( $brand['name'] ); ?>"
-							loading="eager"
-							decoding="async"
-						/>
-					</a>
-				<?php endforeach; ?>
+				<a class="brands-hero__marque" href="#brand-intercoil">
+					<img src="<?php echo esc_url( intercoil_asset_uri( 'logos/brands/intercoil.png' ) ); ?>" alt="Intercoil" loading="eager" decoding="async" />
+				</a>
+				<a class="brands-hero__marque" href="#brand-beautyrest">
+					<img src="<?php echo esc_url( intercoil_asset_uri( 'logos/brands/beautyrest.png' ) ); ?>" alt="Beautyrest by Simmons" loading="eager" decoding="async" />
+				</a>
+				<a class="brands-hero__marque" href="#brand-therapedic">
+					<img src="<?php echo esc_url( intercoil_asset_uri( 'logos/brands/therapedic.png' ) ); ?>" alt="THERAPEDIC" loading="eager" decoding="async" />
+				</a>
+				<a class="brands-hero__marque" href="#brand-dolidol">
+					<img src="<?php echo esc_url( intercoil_asset_uri( 'logos/brands/dolidol.png' ) ); ?>" alt="Dolidol" loading="eager" decoding="async" />
+				</a>
+				<a class="brands-hero__marque" href="#brand-ghalya">
+					<img src="<?php echo esc_url( intercoil_asset_uri( 'logos/brands/ghalyanewlogo2.png' ) ); ?>" alt="Ghalya's Bedding Collection" loading="eager" decoding="async" />
+				</a>
+				<a class="brands-hero__marque" href="#brand-bedroom">
+					<img src="<?php echo esc_url( intercoil_asset_uri( 'logos/brands/newbedroomlogo.png' ) ); ?>" alt="The Bedroom by Intercoil" loading="eager" decoding="async" />
+				</a>
 			</div>
 		</nav>
 
@@ -80,59 +76,81 @@ get_header();
 	</header>
 
 	<section class="brands-index" aria-label="The Intercoil brand portfolio">
-		<?php $row_index = 0; ?>
-		<?php foreach ( $brands as $brand ) : ?>
-			<?php
-			$row_index++;
-			$is_reverse = 0 === $row_index % 2;
-			$row_id     = 'brand-' . $brand['key'];
-			?>
-			<article
-				class="brands-index__row brands-index__row--<?php echo esc_attr( $brand['key'] ); ?><?php echo $is_reverse ? ' brands-index__row--reverse' : ''; ?>"
-				id="<?php echo esc_attr( $row_id ); ?>"
-				aria-labelledby="<?php echo esc_attr( $row_id . '-name' ); ?>"
-			>
-				<div class="container brands-index__layout">
-					<div class="brands-index__media">
-						<span class="brands-index__number" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $row_index ) ); ?></span>
-						<div class="brands-index__panel" aria-hidden="true"></div>
-						<figure class="brands-index__figure reveal-mask">
-							<img
-								class="reveal-mask__target"
-								src="<?php echo esc_url( intercoil_asset_uri( $brand['landing_image'] ) ); ?>"
-								alt=""
-								loading="lazy"
-								decoding="async"
-							/>
-						</figure>
-					</div>
 
-					<div class="brands-index__body">
-						<div class="brands-index__logo-wrap">
-							<img
-								class="brands-index__logo"
-								src="<?php echo esc_url( intercoil_asset_uri( $brand['logo'] ) ); ?>"
-								alt=""
-								aria-hidden="true"
-								loading="lazy"
-								decoding="async"
-							/>
-						</div>
+		<?php
+		get_template_part( 'template-parts/brand/index-row', null, array(
+			'key'     => 'intercoil',
+			'number'  => '01',
+			'reverse' => false,
+			'image'   => 'images/photography/brands/intercoil-brand-new.jpg',
+			'logo'    => 'logos/brands/intercoil.png',
+			'name'    => 'Intercoil',
+			'line'    => 'Some things are built to simply function. Intercoil was built to restore.',
+			'excerpt' => 'Intercoil is our original mattress brand, the name the company was founded on and the place our journey began.',
+			'url'     => intercoil_brand_page_url( 'intercoil' ),
+		) );
 
-						<h2 class="brands-index__name reveal-up" id="<?php echo esc_attr( $row_id . '-name' ); ?>"><?php echo esc_html( $brand['name'] ); ?></h2>
-						<p class="brands-index__line reveal-up delay-1"><?php echo esc_html( $brand['landing_line'] ); ?></p>
-						<p class="brands-index__excerpt reveal-up delay-2"><?php echo esc_html( $brand['excerpt'] ); ?></p>
+		get_template_part( 'template-parts/brand/index-row', null, array(
+			'key'     => 'beautyrest',
+			'number'  => '02',
+			'reverse' => true,
+			'image'   => 'images/photography/brands/beautyrestnew.jpg',
+			'logo'    => 'logos/brands/beautyrest.png',
+			'name'    => 'Beautyrest by Simmons',
+			'line'    => 'The World Standard in Premium Sleep. Now Crafted by Intercoil.',
+			'excerpt' => 'Beautyrest is the flagship premium line of Simmons, the storied American sleep brand.',
+			'url'     => intercoil_brand_page_url( 'beautyrest' ),
+		) );
 
-						<a class="brands-index__cta reveal-up delay-3" href="<?php echo esc_url( intercoil_brand_page_url( $brand['key'] ) ); ?>">
-							Discover the Brand
-							<svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
-								<path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-							</svg>
-						</a>
-					</div>
-				</div>
-			</article>
-		<?php endforeach; ?>
+		get_template_part( 'template-parts/brand/index-row', null, array(
+			'key'     => 'therapedic',
+			'number'  => '03',
+			'reverse' => false,
+			'image'   => 'images/photography/brands/therapedicnew2.jpg',
+			'logo'    => 'logos/brands/therapedic.png',
+			'name'    => 'THERAPEDIC',
+			'line'    => 'Over 50 Years of Sleep Innovation. Engineered to Support the Way Your Body Truly Rests.',
+			'excerpt' => 'Some brands are built on heritage. Therapedic is built on proof.',
+			'url'     => intercoil_brand_page_url( 'therapedic' ),
+		) );
+
+		get_template_part( 'template-parts/brand/index-row', null, array(
+			'key'     => 'dolidol',
+			'number'  => '04',
+			'reverse' => true,
+			'image'   => 'images/photography/brands/dolidol-newbanner.jpg',
+			'logo'    => 'logos/brands/dolidol.png',
+			'name'    => 'Dolidol',
+			'line'    => 'Five Decades of Sleep, Now Crafted in the UAE.',
+			'excerpt' => 'Dolidol began with a simple conviction: that quality sleep belongs in every home.',
+			'url'     => intercoil_brand_page_url( 'dolidol' ),
+		) );
+
+		get_template_part( 'template-parts/brand/index-row', null, array(
+			'key'     => 'ghalya',
+			'number'  => '05',
+			'reverse' => false,
+			'image'   => 'images/photography/brands/ghalya.jpg',
+			'logo'    => 'logos/brands/ghalyanewlogo2.png',
+			'name'    => "Ghalya's Bedding Collection",
+			'line'    => 'The First Sleep Brand Created Exclusively for Children.',
+			'excerpt' => "A first of its kind: a sleep brand built entirely around the science of how children rest, recover, and grow.",
+			'url'     => intercoil_brand_page_url( 'ghalya' ),
+		) );
+
+		get_template_part( 'template-parts/brand/index-row', null, array(
+			'key'     => 'bedroom',
+			'number'  => '06',
+			'reverse' => true,
+			'image'   => 'images/photography/brands/showroom.jpg',
+			'logo'    => 'logos/brands/newbedroomlogo.png',
+			'name'    => 'The Bedroom by Intercoil',
+			'line'    => 'Where Premium Sleep Becomes an Experience You Can See, Feel, and Take Home.',
+			'excerpt' => 'A premium sleep gallery where mattresses, bedding, and bedroom furniture come together in one thoughtfully designed space.',
+			'url'     => intercoil_brand_page_url( 'bedroom' ),
+		) );
+		?>
+
 	</section>
 
 	<section class="brands-outro" aria-labelledby="brands-outro-heading">

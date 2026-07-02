@@ -19,6 +19,7 @@ require_once get_template_directory() . '/inc/nav-walker.php';
 require_once get_template_directory() . '/inc/default-nav.php';
 require_once get_template_directory() . '/inc/comfort-collections.php';
 require_once get_template_directory() . '/inc/brands.php';
+require_once get_template_directory() . '/inc/industries.php';
 
 /**
  * Theme setup.
@@ -168,6 +169,22 @@ function intercoil_enqueue_assets() {
 			$theme_uri . '/assets/css/brands.css',
 			array( 'intercoil-inner-pages' ),
 			intercoil_file_version( $theme_dir . '/assets/css/brands.css' )
+		);
+	}
+
+	if ( is_page_template( intercoil_industry_page_templates() ) ) {
+		wp_enqueue_style(
+			'intercoil-inner-pages',
+			$theme_uri . '/assets/css/inner-pages.css',
+			array( 'intercoil-main' ),
+			intercoil_file_version( $theme_dir . '/assets/css/inner-pages.css' )
+		);
+
+		wp_enqueue_style(
+			'intercoil-industries',
+			$theme_uri . '/assets/css/industries.css',
+			array( 'intercoil-inner-pages' ),
+			intercoil_file_version( $theme_dir . '/assets/css/industries.css' )
 		);
 	}
 }
