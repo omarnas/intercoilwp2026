@@ -45,7 +45,7 @@ get_header();
               <p class="brand-panel__desc">
                 Premium mattress craftsmanship, designed to deliver exceptional comfort and restorative sleep.
               </p>
-              <a href="#" class="brand-panel__cta" aria-label="Explore Intercoil">
+              <a href="<?php echo esc_url( intercoil_brand_page_url( 'intercoil' ) ); ?>" class="brand-panel__cta" aria-label="Explore Intercoil">
                 Explore Brand
                 <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
                   <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -74,7 +74,7 @@ get_header();
               <p class="brand-panel__desc">
                 Now crafted by Intercoil — luxury hospitality heritage trusted by leading hotel groups globally.
               </p>
-              <a href="#" class="brand-panel__cta" aria-label="Explore Beautyrest">
+              <a href="<?php echo esc_url( intercoil_brand_page_url( 'beautyrest' ) ); ?>" class="brand-panel__cta" aria-label="Explore Beautyrest">
                 Explore Brand
                 <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
                   <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -103,7 +103,7 @@ get_header();
               <p class="brand-panel__desc">
                 Engineered to support the way your body truly rests.
               </p>
-              <a href="#" class="brand-panel__cta" aria-label="Explore Therapedic">
+              <a href="<?php echo esc_url( intercoil_brand_page_url( 'therapedic' ) ); ?>" class="brand-panel__cta" aria-label="Explore Therapedic">
                 Explore Brand
                 <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
                   <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -132,7 +132,7 @@ get_header();
               <p class="brand-panel__desc">
                 Where premium sleep becomes an experience you can see, feel, and take home.
               </p>
-              <a href="#" class="brand-panel__cta" aria-label="Explore The Bedroom">
+              <a href="<?php echo esc_url( intercoil_brand_page_url( 'bedroom' ) ); ?>" class="brand-panel__cta" aria-label="Explore The Bedroom">
                 Explore Brand
                 <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
                   <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -161,7 +161,7 @@ get_header();
               <p class="brand-panel__desc">
                 The first sleep brand for children — designed to support every stage of growing up.
               </p>
-              <a href="#" class="brand-panel__cta" aria-label="Explore Ghalya's">
+              <a href="<?php echo esc_url( intercoil_brand_page_url( 'ghalya' ) ); ?>" class="brand-panel__cta" aria-label="Explore Ghalya's">
                 Explore Brand
                 <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
                   <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -190,7 +190,7 @@ get_header();
               <p class="brand-panel__desc">
                 Accessible comfort and dependable value for every home.
               </p>
-              <a href="#" class="brand-panel__cta" aria-label="Explore Dolidol">
+              <a href="<?php echo esc_url( intercoil_brand_page_url( 'dolidol' ) ); ?>" class="brand-panel__cta" aria-label="Explore Dolidol">
                 Explore Brand
                 <svg viewBox="0 0 18 18" fill="none" aria-hidden="true">
                   <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>

@@ -42,9 +42,9 @@ function intercoil_primary_menu_fallback() {
 				'Intercoil',
 				'Beautyrest by Simmons',
 				'THERAPEDIC',
-				'Ghalya by Intercoil',
-				'The Bedroom by Intercoil',
 				'Dolidol',
+				'Ghalya\'s Bedding Collection',
+				'The Bedroom by Intercoil',
 			),
 		),
 		array(
@@ -131,9 +131,9 @@ function intercoil_mobile_menu_fallback() {
 				'Intercoil',
 				'Beautyrest by Simmons',
 				'THERAPEDIC',
-				'Ghalya by Intercoil',
-				'The Bedroom by Intercoil',
 				'Dolidol',
+				'Ghalya\'s Bedding Collection',
+				'The Bedroom by Intercoil',
 			),
 		),
 		array(

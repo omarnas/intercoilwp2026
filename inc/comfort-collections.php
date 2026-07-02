@@ -229,6 +229,15 @@ function intercoil_default_nav_link_url( $label, $placeholder ) {
 		return intercoil_comfort_collection_url( $comfort_labels[ $label ] );
 	}
 
+	$brand_labels = intercoil_brand_nav_labels();
+	if ( isset( $brand_labels[ $label ] ) ) {
+		return intercoil_brand_page_url( $brand_labels[ $label ] );
+	}
+
+	if ( 'Our Brands' === $label ) {
+		return intercoil_brands_landing_url();
+	}
+
 	return $placeholder;
 }
 

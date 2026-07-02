@@ -1,0 +1,16 @@
+<?php
+/**
+ * Template Name: Brand — THERAPEDIC
+ *
+ * @package Intercoil
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+get_header();
+
+intercoil_render_brand_page( 'therapedic' );
+
+get_footer();
