@@ -1,0 +1,496 @@
+/**
+ * Knowledge Hub — inner pages (Healthy Sleep Tips, Mattress Guide, Sleep Products Care).
+ * All selectors live under .intercoil-inner-page (see inner-pages.css notes).
+ *
+ * Structure:
+ *   1. Page tokens
+ *   2. Opening (statement + prose)
+ *   3. Split rows (editorial media/text)
+ *   4. Guide (sticky cinematic numbered entries — Mattress Guide signature)
+ *   5. Mosaic (asymmetric showroom composition)
+ *   6. Quality frame (layered-composition extension — Sleep Tips signature)
+ *   7. Statement band (Sleep Products Care)
+ *   8. Closing + buttons
+ *   9. Mobile overrides
+ *  10. Reduced motion
+ *
+ * Reuse notes:
+ *   - Hero shell, glows, grain, fade come from inner-pages.css (.inner-hero).
+ *   - The Sleep Tips signature reuses the shared .layered-composition frame;
+ *     only its heading is added here.
+ *   - The Mattress Guide signature reuses the shared .media-row--cinematic
+ *     sticky treatment; only the entry typography is added here.
+ *   - Scroll reveals use the shared .reveal-up / .reveal-mask utilities.
+ */
+
+/* ════════════════════════════════════════════════════════════
+   1. PAGE TOKENS
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.knowledge-page {
+  --knowledge-ink: #39415c;
+}
+
+/* ════════════════════════════════════════════════════════════
+   2. OPENING — magazine-style intro
+   Gradient statement, then supporting prose. Shared by all
+   three Knowledge Hub pages so the family reads as one.
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page .knowledge-opening {
+  position: relative;
+  padding: clamp(40px, 6vw, 90px) 0 clamp(56px, 8vw, 100px);
+}
+
+.intercoil-inner-page .knowledge-opening__statement {
+  margin: 0;
+  max-width: 34ch;
+  font-size: clamp(1.6rem, 3.3vw, 2.7rem);
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  background: var(--grad-heading-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page .knowledge-opening__columns {
+  margin-top: clamp(30px, 4.5vw, 48px);
+  max-width: 1060px;
+}
+
+@media (min-width: 800px) {
+  .intercoil-inner-page .knowledge-opening__columns--two {
+    columns: 2;
+    column-gap: clamp(48px, 6vw, 90px);
+  }
+}
+
+.intercoil-inner-page .knowledge-opening__prose {
+  margin: 0 0 1.4em;
+  max-width: 68ch;
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  line-height: 1.8;
+  color: var(--knowledge-ink);
+  break-inside: avoid;
+}
+
+.intercoil-inner-page .knowledge-opening__prose:last-child {
+  margin-bottom: 0;
+}
+
+/* ════════════════════════════════════════════════════════════
+   3. SPLIT ROWS — layered editorial media/text
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page .knowledge-split {
+  padding-top: var(--inner-pad);
+}
+
+.intercoil-inner-page .knowledge-opening + .knowledge-split {
+  padding-top: clamp(30px, 4vw, 60px);
+}
+
+.intercoil-inner-page .knowledge-split__layout {
+  display: grid;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .intercoil-inner-page .knowledge-split__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(56px, 8vw, 110px);
+  }
+
+  .intercoil-inner-page .knowledge-split--reverse .knowledge-split__media {
+    order: 2;
+  }
+}
+
+.intercoil-inner-page .knowledge-split__media {
+  position: relative;
+}
+
+.intercoil-inner-page .knowledge-split__figure {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-img);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.intercoil-inner-page .knowledge-split__figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--inner-ease);
+}
+
+.intercoil-inner-page .knowledge-split__media:hover .knowledge-split__figure img {
+  transform: scale(1.035);
+}
+
+.intercoil-inner-page .knowledge-split__figure-accent {
+  position: absolute;
+  right: -6%;
+  bottom: -12%;
+  width: 40%;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  border-radius: var(--radius-img);
+  border: 6px solid var(--color-white);
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+}
+
+.intercoil-inner-page .knowledge-split--reverse .knowledge-split__figure-accent {
+  right: auto;
+  left: -6%;
+}
+
+.intercoil-inner-page .knowledge-split__figure-accent img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intercoil-inner-page .knowledge-split__title {
+  margin: 0 0 clamp(20px, 3vw, 30px);
+  max-width: 20ch;
+  font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page .knowledge-split__text {
+  margin: 0 0 1.35em;
+  max-width: 56ch;
+  font-size: clamp(1rem, 1.35vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--knowledge-ink);
+}
+
+.intercoil-inner-page .knowledge-split__text:last-child {
+  margin-bottom: 0;
+}
+
+/* ════════════════════════════════════════════════════════════
+   4. GUIDE — numbered entries beside a sticky photograph
+   The Mattress Guide's signature: the shared cinematic media
+   row carries the image; entry typography lives here.
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page .knowledge-guide {
+  padding-top: var(--inner-pad);
+}
+
+.intercoil-inner-page .knowledge-guide__head {
+  max-width: 760px;
+  margin-bottom: clamp(44px, 6vw, 70px);
+}
+
+.intercoil-inner-page .knowledge-guide__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page .knowledge-guide__entries {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(44px, 6vw, 72px);
+}
+
+.intercoil-inner-page .knowledge-guide__entry-title {
+  margin: 0 0 clamp(12px, 1.8vw, 18px);
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page .knowledge-guide__entry-text {
+  margin: 0;
+  max-width: 58ch;
+  font-size: clamp(1rem, 1.35vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--knowledge-ink);
+}
+
+/* ════════════════════════════════════════════════════════════
+   5. MOSAIC — asymmetric showroom composition
+   One dominant frame with two supporting frames. Purely visual.
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page .knowledge-mosaic {
+  padding-top: var(--inner-pad);
+}
+
+.intercoil-inner-page .knowledge-mosaic__layout {
+  display: grid;
+  gap: clamp(12px, 1.8vw, 24px);
+}
+
+@media (min-width: 760px) {
+  .intercoil-inner-page .knowledge-mosaic__layout {
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    height: clamp(420px, 52vw, 640px);
+  }
+
+  .intercoil-inner-page .knowledge-mosaic__item--1 {
+    grid-row: 1 / span 2;
+  }
+}
+
+.intercoil-inner-page .knowledge-mosaic__item {
+  margin: 0;
+  border-radius: var(--radius-img);
+  overflow: hidden;
+  min-height: 0;
+}
+
+@media (max-width: 759px) {
+  .intercoil-inner-page .knowledge-mosaic__item {
+    aspect-ratio: 16 / 10;
+  }
+
+  .intercoil-inner-page .knowledge-mosaic__item--1 {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.intercoil-inner-page .knowledge-mosaic__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--inner-ease);
+}
+
+.intercoil-inner-page .knowledge-mosaic__item:hover img {
+  transform: scale(1.035);
+}
+
+/* ════════════════════════════════════════════════════════════
+   6. QUALITY FRAME — heading inside the shared layered
+   composition (Sleep Tips signature)
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page .knowledge-quality {
+  padding-bottom: 0;
+}
+
+.intercoil-inner-page .knowledge-quality__title {
+  margin: 0 0 clamp(18px, 2.5vw, 26px);
+  max-width: 16ch;
+  font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+}
+
+/* ════════════════════════════════════════════════════════════
+   7. STATEMENT BAND — one quiet idea on the off-white surface
+   (Sleep Products Care — Healthy Sleep Habits)
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page .knowledge-statement {
+  position: relative;
+  margin-top: var(--inner-pad);
+  padding: var(--inner-pad) 0;
+  background: var(--color-off-white);
+  overflow: hidden;
+}
+
+.intercoil-inner-page .knowledge-statement__inner {
+  position: relative;
+  z-index: 1;
+  max-width: min(860px, 100%);
+  margin-inline: auto;
+  text-align: center;
+}
+
+.intercoil-inner-page .knowledge-statement__title {
+  margin: 0 0 clamp(20px, 3vw, 30px);
+  font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page .knowledge-statement__text {
+  margin: 0 auto;
+  max-width: 52ch;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--knowledge-ink);
+}
+
+/* ════════════════════════════════════════════════════════════
+   8. CLOSING + BUTTONS
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page .knowledge-closing {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: clamp(480px, 66vh, 640px);
+  margin-top: var(--inner-pad);
+  padding: clamp(90px, 12vw, 140px) 0;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--color-white);
+}
+
+.intercoil-inner-page .knowledge-statement + .knowledge-closing {
+  margin-top: 0;
+}
+
+.intercoil-inner-page .knowledge-closing__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.intercoil-inner-page .knowledge-closing__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intercoil-inner-page .knowledge-closing__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(0, 8, 56, 0.92) 0%,
+    rgba(0, 31, 140, 0.55) 55%,
+    rgba(0, 8, 56, 0.86) 100%
+  );
+}
+
+.intercoil-inner-page .knowledge-closing__inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.intercoil-inner-page .knowledge-closing__quote {
+  margin: 0 auto clamp(24px, 3.5vw, 36px);
+  max-width: 32ch;
+  font-size: clamp(1.7rem, 3.8vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.24;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.35);
+}
+
+.intercoil-inner-page .knowledge-closing__tagline {
+  margin: 0 auto clamp(36px, 5.5vw, 56px);
+  max-width: 44ch;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.intercoil-inner-page .knowledge-closing__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.intercoil-inner-page .knowledge-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: var(--radius-btn);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.4s var(--inner-ease), box-shadow 0.4s var(--inner-ease), background 0.4s ease;
+}
+
+.intercoil-inner-page .knowledge-btn--primary {
+  background: var(--color-white);
+  color: var(--color-navy);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.intercoil-inner-page .knowledge-btn--primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 52px rgba(0, 0, 0, 0.26);
+}
+
+.intercoil-inner-page .knowledge-btn__arrow {
+  transition: transform 0.4s var(--inner-ease);
+}
+
+.intercoil-inner-page .knowledge-btn--primary:hover .knowledge-btn__arrow {
+  transform: translateX(4px);
+}
+
+.intercoil-inner-page .knowledge-btn--ghost {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.intercoil-inner-page .knowledge-btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* ════════════════════════════════════════════════════════════
+   9. MOBILE OVERRIDES
+   ════════════════════════════════════════════════════════════ */
+
+@media (max-width: 899px) {
+  .intercoil-inner-page .knowledge-split__figure-accent {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .intercoil-inner-page .knowledge-closing__actions .knowledge-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   10. REDUCED MOTION
+   (Shared reveal utilities are already handled in motion.css.)
+   ════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .intercoil-inner-page .knowledge-split__figure img,
+  .intercoil-inner-page .knowledge-mosaic__item img,
+  .intercoil-inner-page .knowledge-btn {
+    transition: none !important;
+  }
+
+  .intercoil-inner-page .knowledge-btn:hover {
+    transform: none;
+  }
+}

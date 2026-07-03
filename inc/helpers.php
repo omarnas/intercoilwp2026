@@ -60,3 +60,28 @@ function intercoil_asset_uri_versioned( $path ) {
 
 	return add_query_arg( 'ver', rawurlencode( $version ), intercoil_asset_uri( $path ) );
 }
+
+/**
+ * Return a page permalink by its slug, falling back to the homepage.
+ *
+ * @param string $slug Page path slug.
+ * @return string
+ */
+function intercoil_page_url( $slug ) {
+	$page = get_page_by_path( $slug );
+
+	return $page ? get_permalink( $page ) : home_url( '/' );
+}
+
+/**
+ * Knowledge Hub page template slugs for asset enqueue.
+ *
+ * @return array<int, string>
+ */
+function intercoil_knowledge_page_templates() {
+	return array(
+		'page-templates/template-knowledge-sleep-tips.php',
+		'page-templates/template-knowledge-mattress-guide.php',
+		'page-templates/template-knowledge-sleep-care.php',
+	);
+}

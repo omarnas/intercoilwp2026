@@ -172,6 +172,22 @@ function intercoil_enqueue_assets() {
 		);
 	}
 
+	if ( is_page_template( intercoil_knowledge_page_templates() ) ) {
+		wp_enqueue_style(
+			'intercoil-inner-pages',
+			$theme_uri . '/assets/css/inner-pages.css',
+			array( 'intercoil-main' ),
+			intercoil_file_version( $theme_dir . '/assets/css/inner-pages.css' )
+		);
+
+		wp_enqueue_style(
+			'intercoil-knowledge',
+			$theme_uri . '/assets/css/knowledge.css',
+			array( 'intercoil-inner-pages' ),
+			intercoil_file_version( $theme_dir . '/assets/css/knowledge.css' )
+		);
+	}
+
 	if ( is_page_template( intercoil_industry_page_templates() ) ) {
 		wp_enqueue_style(
 			'intercoil-inner-pages',

@@ -243,6 +243,18 @@ function intercoil_default_nav_link_url( $label, $placeholder ) {
 		return intercoil_brands_landing_url();
 	}
 
+	$knowledge_labels = array(
+		'Healthy Sleep Tips'  => 'healthy-sleep-tips',
+		'Mattress Guide'      => 'mattress-guide',
+		'Sleep Products Care' => 'sleep-products-care',
+	);
+	if ( isset( $knowledge_labels[ $label ] ) ) {
+		$page = get_page_by_path( $knowledge_labels[ $label ] );
+		if ( $page ) {
+			return get_permalink( $page );
+		}
+	}
+
 	return $placeholder;
 }
 
