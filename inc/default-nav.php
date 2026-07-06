@@ -91,7 +91,12 @@ function intercoil_primary_menu_fallback() {
 			<button type="button" class="nav__link nav__trigger" aria-expanded="false" aria-haspopup="true"><?php echo esc_html( $group['title'] ); ?></button>
 			<ul class="nav__dropdown<?php echo esc_attr( $dropdown_class ); ?>" role="menu">
 				<?php foreach ( $group['links'] as $link ) : ?>
-					<li role="none"><a href="<?php echo esc_url( intercoil_default_nav_link_url( $link, $placeholder ) ); ?>" class="nav__dropdown-link" role="menuitem"><?php echo esc_html( $link ); ?></a></li>
+					<?php
+					$nav_target = intercoil_resolve_default_nav_link_url( $link, $placeholder );
+					$nav_href     = intercoil_default_nav_link_url( $link, $placeholder );
+					$nav_class    = 'nav__dropdown-link' . intercoil_preview_gated_nav_class( $nav_target, $placeholder );
+					?>
+					<li role="none"><a href="<?php echo esc_url( $nav_href ); ?>" class="<?php echo esc_attr( $nav_class ); ?>" role="menuitem"<?php echo intercoil_is_nav_link_gated( $nav_target ) ? ' aria-disabled="true" tabindex="-1"' : ''; ?>><?php echo esc_html( $link ); ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 		</div>
@@ -179,7 +184,12 @@ function intercoil_mobile_menu_fallback() {
 			<button type="button" class="nav__mobile-trigger" aria-expanded="false"><?php echo esc_html( $group['title'] ); ?></button>
 			<ul class="nav__mobile-sub">
 				<?php foreach ( $group['links'] as $link ) : ?>
-					<li><a href="<?php echo esc_url( intercoil_default_nav_link_url( $link, $placeholder ) ); ?>" class="nav__mobile-sublink"><?php echo esc_html( $link ); ?></a></li>
+					<?php
+					$nav_target = intercoil_resolve_default_nav_link_url( $link, $placeholder );
+					$nav_href     = intercoil_default_nav_link_url( $link, $placeholder );
+					$nav_class    = 'nav__mobile-sublink' . intercoil_preview_gated_nav_class( $nav_target, $placeholder );
+					?>
+					<li><a href="<?php echo esc_url( $nav_href ); ?>" class="<?php echo esc_attr( $nav_class ); ?>"<?php echo intercoil_is_nav_link_gated( $nav_target ) ? ' aria-disabled="true" tabindex="-1"' : ''; ?>><?php echo esc_html( $link ); ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 		</div>

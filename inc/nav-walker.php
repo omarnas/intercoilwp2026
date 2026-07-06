@@ -74,7 +74,11 @@ class Intercoil_Desktop_Nav_Walker extends Walker_Nav_Menu {
 			return;
 		}
 
-		$output .= '<li role="none"><a href="' . esc_url( $item->url ) . '" class="nav__dropdown-link" role="menuitem">';
+		$output .= '<li role="none"><a href="' . esc_url( $item->url ) . '" class="nav__dropdown-link' . ( in_array( 'nav__item--preview-gated', (array) $item->classes, true ) ? ' nav__item--preview-gated' : '' ) . '" role="menuitem"';
+		if ( in_array( 'nav__item--preview-gated', (array) $item->classes, true ) ) {
+			$output .= ' aria-disabled="true" tabindex="-1"';
+		}
+		$output .= '>';
 		$output .= esc_html( $item->title );
 		$output .= '</a></li>';
 	}
@@ -143,7 +147,11 @@ class Intercoil_Mobile_Nav_Walker extends Walker_Nav_Menu {
 			return;
 		}
 
-		$output .= '<li><a href="' . esc_url( $item->url ) . '" class="nav__mobile-sublink">';
+		$output .= '<li><a href="' . esc_url( $item->url ) . '" class="nav__mobile-sublink' . ( in_array( 'nav__item--preview-gated', (array) $item->classes, true ) ? ' nav__item--preview-gated' : '' ) . '"';
+		if ( in_array( 'nav__item--preview-gated', (array) $item->classes, true ) ) {
+			$output .= ' aria-disabled="true" tabindex="-1"';
+		}
+		$output .= '>';
 		$output .= esc_html( $item->title );
 		$output .= '</a></li>';
 	}

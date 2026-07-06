@@ -15,11 +15,13 @@ require_once get_template_directory() . '/inc/helpers.php';
 require_once get_template_directory() . '/inc/post-types.php';
 require_once get_template_directory() . '/inc/hero.php';
 require_once get_template_directory() . '/inc/stats.php';
-require_once get_template_directory() . '/inc/nav-walker.php';
-require_once get_template_directory() . '/inc/default-nav.php';
 require_once get_template_directory() . '/inc/comfort-collections.php';
 require_once get_template_directory() . '/inc/brands.php';
 require_once get_template_directory() . '/inc/industries.php';
+require_once get_template_directory() . '/inc/news.php';
+require_once get_template_directory() . '/inc/preview-access.php';
+require_once get_template_directory() . '/inc/nav-walker.php';
+require_once get_template_directory() . '/inc/default-nav.php';
 
 /**
  * Theme setup.
@@ -201,6 +203,22 @@ function intercoil_enqueue_assets() {
 			$theme_uri . '/assets/css/industries.css',
 			array( 'intercoil-inner-pages' ),
 			intercoil_file_version( $theme_dir . '/assets/css/industries.css' )
+		);
+	}
+
+	if ( is_page_template( intercoil_news_page_templates() ) || is_singular( 'post' ) ) {
+		wp_enqueue_style(
+			'intercoil-inner-pages',
+			$theme_uri . '/assets/css/inner-pages.css',
+			array( 'intercoil-main' ),
+			intercoil_file_version( $theme_dir . '/assets/css/inner-pages.css' )
+		);
+
+		wp_enqueue_style(
+			'intercoil-news',
+			$theme_uri . '/assets/css/news.css',
+			array( 'intercoil-inner-pages' ),
+			intercoil_file_version( $theme_dir . '/assets/css/news.css' )
 		);
 	}
 }

@@ -212,17 +212,18 @@ function intercoil_get_comfort_collection( $key ) {
 }
 
 /**
- * Resolve fallback nav URL for a menu label.
+ * Resolve a fallback nav URL without preview gating (for class checks).
  *
  * @param string $label       Menu label.
  * @param string $placeholder Default URL when no page exists.
+ * @return string
  */
-function intercoil_default_nav_link_url( $label, $placeholder ) {
+function intercoil_resolve_default_nav_link_url( $label, $placeholder ) {
 	$comfort_labels = array(
-		'Beds & Bedroom Furniture'   => 'beds',
-		'Mattresses'                 => 'mattresses',
-		'Bedding Accessories'        => 'bedding',
-		'Foam & Industrial Solutions' => 'foam',
+		'Beds & Bedroom Furniture'    => 'beds',
+		'Mattresses'                    => 'mattresses',
+		'Bedding Accessories'           => 'bedding',
+		'Foam & Industrial Solutions'   => 'foam',
 	);
 
 	if ( isset( $comfort_labels[ $label ] ) ) {
@@ -243,6 +244,10 @@ function intercoil_default_nav_link_url( $label, $placeholder ) {
 		return intercoil_brands_landing_url();
 	}
 
+	if ( 'Press Releases' === $label ) {
+		return intercoil_news_page_url();
+	}
+
 	$knowledge_labels = array(
 		'Healthy Sleep Tips'  => 'healthy-sleep-tips',
 		'Mattress Guide'      => 'mattress-guide',
@@ -256,6 +261,19 @@ function intercoil_default_nav_link_url( $label, $placeholder ) {
 	}
 
 	return $placeholder;
+}
+
+/**
+ * Resolve fallback nav URL for a menu label.
+ *
+ * @param string $label       Menu label.
+ * @param string $placeholder Default URL when no page exists.
+ */
+function intercoil_default_nav_link_url( $label, $placeholder ) {
+	return intercoil_gated_nav_url(
+		intercoil_resolve_default_nav_link_url( $label, $placeholder ),
+		$placeholder
+	);
 }
 
 /**

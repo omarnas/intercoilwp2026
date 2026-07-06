@@ -447,6 +447,19 @@ ul { list-style: none; }
   background: rgba(255, 255, 255, 0.06);
 }
 
+.nav__dropdown-link.nav__item--preview-gated,
+.nav__mobile-sublink.nav__item--preview-gated {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.42;
+}
+
+.nav__dropdown-link.nav__item--preview-gated:hover,
+.nav__mobile-sublink.nav__item--preview-gated:hover {
+  color: rgba(255, 255, 255, 0.55);
+  background: transparent;
+}
+
 .nav__dropdown-link--brand {
   display: flex;
   align-items: center;
