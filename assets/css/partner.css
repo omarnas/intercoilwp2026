@@ -1,0 +1,287 @@
+/**
+ * Intercoil — Become a Partner page styles.
+ * Scoped under .intercoil-inner-page.partner-page, on top of inner-pages.css.
+ *
+ * Composition:
+ *   - Hero: shared Overlay hero, compact register, with the partnership
+ *     invitation and the primary CTA (reuses the shared legacy-btn).
+ *   - Intro: Editorial Story — the two partnership tracks told through a
+ *     layered manufacturing + retail image pair beside a Statement.
+ *   - What You Receive: calm four-pillar grid on the off-white band.
+ *   - How to Get Started: List register — quiet numerals, one thin axis.
+ *   - Closing: the page's Signature Moment — Oversized Statement fused
+ *     with the shared bold CTA register (legacy-closing).
+ */
+
+/* ════════════════════════════════════════════════════════════
+   HERO — wider tagline + CTA
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.partner-page .partner-hero__img {
+  object-position: center 60%;
+}
+
+.intercoil-inner-page.partner-page .partner-hero__tagline {
+  max-width: 58ch;
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  line-height: 1.65;
+}
+
+.intercoil-inner-page.partner-page .partner-hero__actions {
+  margin-top: clamp(32px, 4.5vw, 44px);
+}
+
+/* ════════════════════════════════════════════════════════════
+   INTRO — statement beside layered imagery
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.partner-page .partner-intro {
+  padding: var(--inner-pad) 0;
+  background: var(--color-white);
+}
+
+.intercoil-inner-page.partner-page .partner-intro__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(44px, 6vw, 96px);
+  align-items: center;
+}
+
+.intercoil-inner-page.partner-page .partner-intro__statement {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.partner-page .partner-intro__visual {
+  position: relative;
+  padding-bottom: clamp(48px, 7vw, 80px);
+}
+
+.intercoil-inner-page.partner-page .partner-intro__figure {
+  margin: 0;
+  border-radius: var(--radius-img, 20px);
+  overflow: hidden;
+}
+
+.intercoil-inner-page.partner-page .partner-intro__figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.intercoil-inner-page.partner-page .partner-intro__figure--primary {
+  width: 88%;
+  margin-left: auto;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 24px 60px rgba(0, 8, 56, 0.14);
+}
+
+.intercoil-inner-page.partner-page .partner-intro__figure--accent {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 44%;
+  aspect-ratio: 5 / 4;
+  box-shadow: 0 20px 52px rgba(0, 8, 56, 0.18);
+}
+
+/* ════════════════════════════════════════════════════════════
+   WHAT YOU RECEIVE — four calm pillars
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.partner-page .partner-pillars {
+  padding: var(--inner-pad) 0;
+  background: var(--color-off-white);
+}
+
+.intercoil-inner-page.partner-page .partner-pillars__heading {
+  margin: 0 0 clamp(48px, 7vw, 84px);
+  max-width: 18ch;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.partner-page .partner-pillars__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 2.5vw, 28px);
+}
+
+.intercoil-inner-page.partner-page .partner-pillar {
+  padding: clamp(30px, 4vw, 48px) clamp(28px, 3.5vw, 44px);
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: 0 10px 34px rgba(0, 8, 56, 0.05);
+  transition:
+    box-shadow 0.5s var(--inner-ease),
+    transform 0.5s var(--inner-ease);
+}
+
+.intercoil-inner-page.partner-page .partner-pillar:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 60px rgba(0, 8, 56, 0.1);
+}
+
+.intercoil-inner-page.partner-page .partner-pillar__title {
+  margin: 0 0 clamp(14px, 2vw, 20px);
+  font-size: clamp(1.2rem, 1.9vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.partner-page .partner-pillar__text {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.4vw, 1.02rem);
+  line-height: 1.8;
+  color: rgba(0, 8, 56, 0.66);
+}
+
+/* ════════════════════════════════════════════════════════════
+   HOW TO GET STARTED — quiet numerals, one thin axis
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.partner-page .partner-steps {
+  padding: var(--inner-pad) 0;
+  background: var(--color-white);
+}
+
+.intercoil-inner-page.partner-page .partner-steps__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+.intercoil-inner-page.partner-page .partner-steps__heading {
+  margin: 0;
+  max-width: 12ch;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.partner-page .partner-steps__list {
+  --step-num-col: clamp(40px, 5vw, 56px);
+  position: relative;
+  display: grid;
+  row-gap: clamp(44px, 6vw, 68px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* One quiet axis for the whole sequence — not per-row chrome. */
+.intercoil-inner-page.partner-page .partner-steps__list::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: calc(var(--step-num-col) / 2 - 6px);
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 8, 56, 0.16) 0%,
+    rgba(0, 8, 56, 0.07) 60%,
+    rgba(0, 8, 56, 0) 100%
+  );
+}
+
+.intercoil-inner-page.partner-page .partner-step {
+  display: grid;
+  grid-template-columns: var(--step-num-col) minmax(0, 1fr);
+  column-gap: clamp(20px, 3vw, 36px);
+  align-items: baseline;
+}
+
+.intercoil-inner-page.partner-page .partner-step__num {
+  position: relative;
+  z-index: 1;
+  justify-self: start;
+  padding: 2px 6px 2px 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(0, 8, 56, 0.38);
+  background: var(--color-white);
+}
+
+.intercoil-inner-page.partner-page .partner-step__text {
+  margin: 0;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: var(--color-navy);
+}
+
+/* ════════════════════════════════════════════════════════════
+   CLOSING — Oversized Statement on the shared bold CTA register
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.partner-page .partner-closing__statement {
+  max-width: 34ch;
+  font-size: clamp(1.5rem, 3.4vw, 2.6rem);
+  font-weight: 300;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .intercoil-inner-page.partner-page .partner-intro__layout,
+  .intercoil-inner-page.partner-page .partner-steps__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .intercoil-inner-page.partner-page .partner-steps__heading {
+    margin-bottom: clamp(12px, 3vw, 24px);
+  }
+}
+
+@media (max-width: 767px) {
+  .intercoil-inner-page.partner-page .partner-pillars__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intercoil-inner-page.partner-page .partner-intro__figure--primary {
+    width: 100%;
+  }
+
+  .intercoil-inner-page.partner-page .partner-intro__figure--accent {
+    width: 48%;
+  }
+
+  .intercoil-inner-page.partner-page .partner-hero__actions .legacy-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .intercoil-inner-page.partner-page .partner-pillar {
+    transition: none;
+  }
+
+  .intercoil-inner-page.partner-page .partner-pillar:hover {
+    transform: none;
+  }
+}

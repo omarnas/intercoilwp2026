@@ -1,0 +1,445 @@
+/**
+ * Intercoil — Locate a Store page styles.
+ * Scoped under .intercoil-inner-page.locate-page, on top of inner-pages.css.
+ *
+ * Composition:
+ *   - Hero: shared Overlay hero, compact register (store photograph).
+ *   - Store finder: the page's Signature Moment — an interactive split
+ *     composition: searchable/filterable store rail beside a framed,
+ *     brand-styled Google Map.
+ *   - Quiet arrow-link close back to The Bedroom by Intercoil.
+ */
+
+/* ════════════════════════════════════════════════════════════
+   HERO — retail photograph treatment
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.locate-page .locate-hero__img {
+  object-position: center 55%;
+}
+
+/* ════════════════════════════════════════════════════════════
+   STORE FINDER — controls
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.locate-page .locate-finder {
+  padding: clamp(56px, 8vw, 100px) 0 var(--inner-pad);
+  background: var(--color-white);
+}
+
+.intercoil-inner-page.locate-page .locate-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(16px, 2.5vw, 28px);
+  margin-bottom: clamp(28px, 4vw, 44px);
+}
+
+.intercoil-inner-page.locate-page .locate-search {
+  position: relative;
+  display: block;
+  flex: 1 1 300px;
+  max-width: 420px;
+}
+
+.intercoil-inner-page.locate-page .locate-search__icon {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  width: 17px;
+  height: 17px;
+  transform: translateY(-50%);
+  color: rgba(0, 8, 56, 0.42);
+  pointer-events: none;
+  transition: color 0.3s var(--inner-ease);
+}
+
+.intercoil-inner-page.locate-page .locate-search:focus-within .locate-search__icon {
+  color: var(--color-accent);
+}
+
+.intercoil-inner-page.locate-page .locate-search__input {
+  width: 100%;
+  padding: 15px 22px 15px 50px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--color-navy);
+  background: var(--color-off-white);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  outline: none;
+  appearance: none;
+  transition:
+    background 0.3s var(--inner-ease),
+    border-color 0.3s var(--inner-ease),
+    box-shadow 0.3s var(--inner-ease);
+}
+
+.intercoil-inner-page.locate-page .locate-search__input::placeholder {
+  color: rgba(0, 8, 56, 0.38);
+}
+
+.intercoil-inner-page.locate-page .locate-search__input:focus {
+  background: var(--color-white);
+  border-color: rgba(0, 160, 243, 0.45);
+  box-shadow: 0 10px 30px rgba(0, 8, 56, 0.08);
+}
+
+.intercoil-inner-page.locate-page .locate-search__input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.intercoil-inner-page.locate-page .locate-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.intercoil-inner-page.locate-page .locate-filter {
+  padding: 11px 20px;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0, 8, 56, 0.55);
+  background: transparent;
+  border: 1px solid rgba(0, 8, 56, 0.14);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    color 0.3s var(--inner-ease),
+    background 0.3s var(--inner-ease),
+    border-color 0.3s var(--inner-ease);
+}
+
+.intercoil-inner-page.locate-page .locate-filter:hover,
+.intercoil-inner-page.locate-page .locate-filter:focus-visible {
+  color: var(--color-royal);
+  border-color: rgba(0, 31, 140, 0.4);
+}
+
+.intercoil-inner-page.locate-page .locate-filter.is-active {
+  color: var(--color-white);
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+}
+
+/* ════════════════════════════════════════════════════════════
+   STORE FINDER — split layout
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.locate-page .locate-layout {
+  --locate-height: clamp(540px, 72vh, 700px);
+  display: grid;
+  grid-template-columns: minmax(340px, 430px) minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 44px);
+  align-items: start;
+}
+
+/* ── Store rail ── */
+
+.intercoil-inner-page.locate-page .locate-rail {
+  position: relative;
+  max-height: var(--locate-height);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4px 14px 4px 4px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 8, 56, 0.18) transparent;
+}
+
+.intercoil-inner-page.locate-page .locate-rail::-webkit-scrollbar {
+  width: 5px;
+}
+
+.intercoil-inner-page.locate-page .locate-rail::-webkit-scrollbar-thumb {
+  background: rgba(0, 8, 56, 0.18);
+  border-radius: 999px;
+}
+
+.intercoil-inner-page.locate-page .locate-list {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.intercoil-inner-page.locate-page .locate-card {
+  background: var(--color-off-white);
+  border-radius: 18px;
+  overflow: hidden;
+  transition:
+    background 0.3s var(--inner-ease),
+    box-shadow 0.45s var(--inner-ease),
+    transform 0.45s var(--inner-ease);
+}
+
+.intercoil-inner-page.locate-page .locate-card:hover {
+  background: var(--color-white);
+  box-shadow: 0 18px 44px rgba(0, 8, 56, 0.1);
+  transform: translateY(-2px);
+}
+
+.intercoil-inner-page.locate-page .locate-card.is-active {
+  background: var(--color-white);
+  box-shadow:
+    0 20px 48px rgba(0, 8, 56, 0.12),
+    inset 3px 0 0 var(--color-accent);
+}
+
+.intercoil-inner-page.locate-page .locate-card.is-hidden {
+  display: none;
+}
+
+.intercoil-inner-page.locate-page .locate-card__main {
+  display: block;
+  width: 100%;
+  padding: clamp(20px, 2.5vw, 26px) clamp(20px, 2.5vw, 28px) 4px;
+  font-family: inherit;
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.intercoil-inner-page.locate-page .locate-card__name {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-navy);
+  transition: color 0.3s var(--inner-ease);
+}
+
+.intercoil-inner-page.locate-page .locate-card.is-active .locate-card__name {
+  color: var(--color-royal);
+}
+
+.intercoil-inner-page.locate-page .locate-card__address {
+  margin: 0 0 6px;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: rgba(0, 8, 56, 0.62);
+}
+
+.intercoil-inner-page.locate-page .locate-card__meta {
+  margin: 0 0 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0, 8, 56, 0.4);
+}
+
+.intercoil-inner-page.locate-page .locate-card__phone {
+  margin: 0;
+  font-size: 0.86rem;
+  color: rgba(0, 8, 56, 0.62);
+}
+
+.intercoil-inner-page.locate-page .locate-card__actions {
+  display: flex;
+  gap: clamp(18px, 2vw, 26px);
+  padding: 14px clamp(20px, 2.5vw, 28px) clamp(18px, 2.2vw, 22px);
+}
+
+.intercoil-inner-page.locate-page .locate-card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-royal);
+  transition: color 0.3s var(--inner-ease);
+}
+
+.intercoil-inner-page.locate-page .locate-card__action svg {
+  width: 13px;
+  height: 13px;
+}
+
+.intercoil-inner-page.locate-page .locate-card__action:hover,
+.intercoil-inner-page.locate-page .locate-card__action:focus-visible {
+  color: var(--color-accent);
+}
+
+.intercoil-inner-page.locate-page .locate-card__action-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--inner-ease);
+}
+
+.intercoil-inner-page.locate-page .locate-card__action--directions:hover .locate-card__action-arrow {
+  transform: translateX(4px);
+}
+
+.intercoil-inner-page.locate-page .locate-empty {
+  margin: 24px 4px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(0, 8, 56, 0.55);
+}
+
+/* ── Map ── */
+
+.intercoil-inner-page.locate-page .locate-map-wrap {
+  position: sticky;
+  top: clamp(88px, 12vh, 110px);
+}
+
+.intercoil-inner-page.locate-page .locate-map {
+  width: 100%;
+  height: var(--locate-height);
+  border-radius: var(--radius-img, 20px);
+  overflow: hidden;
+  background: var(--color-off-white);
+  box-shadow: 0 28px 70px rgba(0, 8, 56, 0.14);
+}
+
+/* Google info window — align with the card language. */
+.intercoil-inner-page.locate-page .gm-style .gm-style-iw-c {
+  padding: 0;
+  border-radius: 16px;
+  box-shadow: 0 18px 48px rgba(0, 8, 56, 0.22);
+}
+
+.intercoil-inner-page.locate-page .gm-style .gm-style-iw-d {
+  overflow: auto !important;
+}
+
+.intercoil-inner-page.locate-page .locate-iw {
+  max-width: 270px;
+  padding: 20px 22px 18px;
+  font-family: var(--font-primary, inherit);
+}
+
+.intercoil-inner-page.locate-page .locate-iw__name {
+  margin: 0 0 7px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.locate-page .locate-iw__address {
+  margin: 0 0 5px;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: rgba(0, 8, 56, 0.62);
+}
+
+.intercoil-inner-page.locate-page .locate-iw__meta {
+  margin: 0 0 5px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0, 8, 56, 0.4);
+}
+
+.intercoil-inner-page.locate-page .locate-iw__phone {
+  margin: 0 0 12px;
+  font-size: 0.8rem;
+  color: rgba(0, 8, 56, 0.62);
+}
+
+.intercoil-inner-page.locate-page .locate-iw__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-royal);
+}
+
+.intercoil-inner-page.locate-page .locate-iw__link:hover {
+  color: var(--color-accent);
+}
+
+/* ════════════════════════════════════════════════════════════
+   QUIET CLOSE
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.locate-page .locate-next {
+  padding: 0 0 var(--inner-pad);
+  background: var(--color-white);
+}
+
+.intercoil-inner-page.locate-page .locate-next__inner {
+  display: flex;
+  justify-content: center;
+}
+
+.intercoil-inner-page.locate-page .locate-next__link {
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .intercoil-inner-page.locate-page .locate-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Stacked order: controls → map → cards. */
+  .intercoil-inner-page.locate-page .locate-map-wrap {
+    position: static;
+    order: -1;
+  }
+
+  .intercoil-inner-page.locate-page .locate-map {
+    height: clamp(340px, 48vh, 460px);
+  }
+
+  .intercoil-inner-page.locate-page .locate-rail {
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .intercoil-inner-page.locate-page .locate-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .intercoil-inner-page.locate-page .locate-list {
+    grid-template-columns: 1fr;
+  }
+
+  .intercoil-inner-page.locate-page .locate-search {
+    max-width: none;
+    flex-basis: 100%;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .intercoil-inner-page.locate-page .locate-card,
+  .intercoil-inner-page.locate-page .locate-card__action,
+  .intercoil-inner-page.locate-page .locate-card__action-arrow,
+  .intercoil-inner-page.locate-page .locate-filter,
+  .intercoil-inner-page.locate-page .locate-search__input {
+    transition: none;
+  }
+
+  .intercoil-inner-page.locate-page .locate-card:hover {
+    transform: none;
+  }
+}

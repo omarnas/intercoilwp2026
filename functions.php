@@ -206,6 +206,83 @@ function intercoil_enqueue_assets() {
 		);
 	}
 
+	if ( is_page_template( 'page-templates/template-awards.php' ) ) {
+		wp_enqueue_style(
+			'intercoil-inner-pages',
+			$theme_uri . '/assets/css/inner-pages.css',
+			array( 'intercoil-main' ),
+			intercoil_file_version( $theme_dir . '/assets/css/inner-pages.css' )
+		);
+
+		wp_enqueue_style(
+			'intercoil-awards',
+			$theme_uri . '/assets/css/awards.css',
+			array( 'intercoil-inner-pages' ),
+			intercoil_file_version( $theme_dir . '/assets/css/awards.css' )
+		);
+	}
+
+	if ( is_page_template( 'page-templates/template-become-partner.php' ) ) {
+		wp_enqueue_style(
+			'intercoil-inner-pages',
+			$theme_uri . '/assets/css/inner-pages.css',
+			array( 'intercoil-main' ),
+			intercoil_file_version( $theme_dir . '/assets/css/inner-pages.css' )
+		);
+
+		wp_enqueue_style(
+			'intercoil-partner',
+			$theme_uri . '/assets/css/partner.css',
+			array( 'intercoil-inner-pages' ),
+			intercoil_file_version( $theme_dir . '/assets/css/partner.css' )
+		);
+	}
+
+	if ( is_page_template( 'page-templates/template-locate-store.php' ) ) {
+		wp_enqueue_style(
+			'intercoil-inner-pages',
+			$theme_uri . '/assets/css/inner-pages.css',
+			array( 'intercoil-main' ),
+			intercoil_file_version( $theme_dir . '/assets/css/inner-pages.css' )
+		);
+
+		wp_enqueue_style(
+			'intercoil-locate-store',
+			$theme_uri . '/assets/css/locate-store.css',
+			array( 'intercoil-inner-pages' ),
+			intercoil_file_version( $theme_dir . '/assets/css/locate-store.css' )
+		);
+
+		wp_enqueue_script(
+			'intercoil-locate-store',
+			$theme_uri . '/assets/js/locate-store.js',
+			array(),
+			intercoil_file_version( $theme_dir . '/assets/js/locate-store.js' ),
+			true
+		);
+
+		$maps_key = intercoil_google_maps_api_key();
+		if ( $maps_key ) {
+			wp_enqueue_script(
+				'google-maps',
+				add_query_arg(
+					array(
+						'key'      => rawurlencode( $maps_key ),
+						'callback' => 'intercoilInitLocateMap',
+						'loading'  => 'async',
+					),
+					'https://maps.googleapis.com/maps/api/js'
+				),
+				array( 'intercoil-locate-store' ),
+				null,
+				array(
+					'in_footer' => true,
+					'strategy'  => 'async',
+				)
+			);
+		}
+	}
+
 	if ( is_page_template( intercoil_news_page_templates() ) || is_singular( 'post' ) ) {
 		wp_enqueue_style(
 			'intercoil-inner-pages',

@@ -74,6 +74,35 @@ function intercoil_page_url( $slug ) {
 }
 
 /**
+ * Locate a Store page permalink — the CTA destination for
+ * The Bedroom by Intercoil.
+ *
+ * @return string
+ */
+function intercoil_locate_store_url() {
+	return intercoil_page_url( 'locate-a-store' );
+}
+
+/**
+ * Google Maps API key — configurable from the backend.
+ *
+ * Override with the `intercoil_google_maps_api_key` option
+ * (e.g. `wp option update intercoil_google_maps_api_key <key>`)
+ * or the filter of the same name.
+ *
+ * @return string
+ */
+function intercoil_google_maps_api_key() {
+	$key = get_option( 'intercoil_google_maps_api_key', '' );
+
+	if ( ! $key ) {
+		$key = 'AIzaSyDmg24vIZkIiZ3Uku28aYByJPSRBO_Wg2k';
+	}
+
+	return (string) apply_filters( 'intercoil_google_maps_api_key', $key );
+}
+
+/**
  * Knowledge Hub page template slugs for asset enqueue.
  *
  * @return array<int, string>

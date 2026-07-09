@@ -137,8 +137,8 @@ get_header();
 	get_template_part( 'template-parts/brand/closing', null, array(
 		'quote'     => 'Premium sleep is something you live with every day. The Bedroom is where that life begins.',
 		'image'     => 'images/photography/general/elegant-bedroom-interior-with-bed-and-decoration-2026-03-10-03-05-55-utc.jpg',
-		'cta_label' => 'Discover The Bedroom Products',
-		'cta_url'   => intercoil_comfort_collection_url( 'beds' ),
+		'cta_label' => 'Locate A Store',
+		'cta_url'   => intercoil_locate_store_url(),
 	) );
 	?>
 

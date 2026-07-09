@@ -1,0 +1,305 @@
+/**
+ * Intercoil — Awards & Guinness Records page styles.
+ * Scoped under .intercoil-inner-page.awards-page, on top of inner-pages.css.
+ *
+ * Composition:
+ *   - Hero: shared Overlay hero, plain register (archival photograph).
+ *   - Awards: first build of the Timeline utility component (large-date
+ *     editorial register — date column, single quiet axis line, prose body).
+ *   - Guinness World Records: the page's Signature Moment — Immersive Scene
+ *     on navy with the archival record photograph and gradient-text years.
+ *   - Quiet arrow-link close.
+ */
+
+/* ════════════════════════════════════════════════════════════
+   HERO — archival photograph treatment
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.awards-page .awards-hero__img {
+  filter: saturate(0.72) contrast(1.06) brightness(0.96);
+  object-position: center 30%;
+}
+
+/* ════════════════════════════════════════════════════════════
+   AWARDS — TIMELINE (large-date editorial register)
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.awards-page .awards-timeline {
+  position: relative;
+  padding: var(--inner-pad) 0;
+  background: var(--color-white);
+}
+
+.intercoil-inner-page.awards-page .awards-timeline__heading {
+  margin: 0 0 clamp(56px, 8vw, 100px);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.awards-page .awards-timeline__list {
+  --awards-date-col: clamp(160px, 20vw, 250px);
+  --awards-date-gap: clamp(44px, 6vw, 96px);
+  position: relative;
+  display: grid;
+  row-gap: clamp(64px, 9vw, 110px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* One quiet chronological axis for the whole list — not per-row chrome. */
+.intercoil-inner-page.awards-page .awards-timeline__list::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: calc(var(--awards-date-col) + (var(--awards-date-gap) / 2));
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 8, 56, 0.16) 0%,
+    rgba(0, 8, 56, 0.07) 55%,
+    rgba(0, 8, 56, 0) 100%
+  );
+}
+
+.intercoil-inner-page.awards-page .awards-timeline__item {
+  display: grid;
+  grid-template-columns: var(--awards-date-col) minmax(0, 1fr);
+  column-gap: var(--awards-date-gap);
+  align-items: start;
+}
+
+.intercoil-inner-page.awards-page .awards-timeline__date {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.2vw, 14px);
+}
+
+.intercoil-inner-page.awards-page .awards-timeline__month {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0, 8, 56, 0.42);
+}
+
+.intercoil-inner-page.awards-page .awards-timeline__year {
+  font-size: clamp(2.75rem, 5.2vw, 4.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--color-navy);
+  font-variant-numeric: tabular-nums;
+}
+
+.intercoil-inner-page.awards-page .awards-timeline__body {
+  padding-top: clamp(2px, 0.6vw, 8px);
+}
+
+.intercoil-inner-page.awards-page .awards-timeline__title {
+  margin: 0 0 clamp(12px, 1.8vw, 18px);
+  max-width: 32ch;
+  font-size: clamp(1.3rem, 2.1vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.awards-page .awards-timeline__text {
+  margin: 0;
+  max-width: 58ch;
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  line-height: 1.8;
+  color: rgba(0, 8, 56, 0.6);
+}
+
+/* ════════════════════════════════════════════════════════════
+   GUINNESS WORLD RECORDS — SIGNATURE MOMENT (Immersive Scene)
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.awards-page .awards-records {
+  position: relative;
+  padding: var(--inner-pad) 0;
+  background: var(--color-navy);
+  overflow: hidden;
+}
+
+/* Soft ambient depth behind the scene — no hard edges. */
+.intercoil-inner-page.awards-page .awards-records::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -12%;
+  width: 55%;
+  aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(0, 160, 243, 0.14) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.intercoil-inner-page.awards-page .awards-records__head {
+  position: relative;
+  z-index: 1;
+}
+
+.intercoil-inner-page.awards-page .awards-records__heading {
+  margin: 0 0 clamp(56px, 8vw, 90px);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--color-white);
+}
+
+.intercoil-inner-page.awards-page .awards-records__scene {
+  position: relative;
+  margin: 0;
+  height: clamp(320px, 62vh, 640px);
+  overflow: hidden;
+}
+
+.intercoil-inner-page.awards-page .awards-records__scene img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  filter: saturate(0.82) contrast(1.04);
+}
+
+/* Blend the full-bleed photograph into the navy canvas above and below. */
+.intercoil-inner-page.awards-page .awards-records__scene-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 8, 56, 0.55) 0%, transparent 26%, transparent 68%, rgba(0, 8, 56, 0.72) 100%);
+  pointer-events: none;
+}
+
+.intercoil-inner-page.awards-page .awards-records__list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: clamp(40px, 5vw, 80px);
+  row-gap: clamp(48px, 7vw, 64px);
+  margin: clamp(64px, 9vw, 110px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.intercoil-inner-page.awards-page .awards-records__year {
+  display: block;
+  margin-bottom: clamp(10px, 1.6vw, 18px);
+  font-size: clamp(3.5rem, 6.5vw, 6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  background: var(--grad-stats-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-variant-numeric: tabular-nums;
+}
+
+.intercoil-inner-page.awards-page .awards-records__title {
+  margin: 0;
+  max-width: 20ch;
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+/* ════════════════════════════════════════════════════════════
+   CLOSE — quiet arrow-link to Press Releases
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.awards-page .awards-next {
+  padding: clamp(70px, 10vw, 130px) 0;
+  background: var(--color-white);
+}
+
+.intercoil-inner-page.awards-page .awards-next__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px 40px;
+}
+
+.intercoil-inner-page.awards-page .awards-next__lead {
+  margin: 0;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.awards-page .awards-next__link {
+  color: var(--color-royal);
+}
+
+.intercoil-inner-page.awards-page .awards-next__link:hover,
+.intercoil-inner-page.awards-page .awards-next__link:focus-visible {
+  color: var(--color-accent);
+}
+
+/* ════════════════════════════════════════════════════════════
+   MOBILE
+   ════════════════════════════════════════════════════════════ */
+
+@media (max-width: 860px) {
+  .intercoil-inner-page.awards-page .awards-timeline__list {
+    row-gap: clamp(56px, 11vw, 72px);
+  }
+
+  /* The axis moves to the far left; date sits above the body. */
+  .intercoil-inner-page.awards-page .awards-timeline__list::before {
+    left: 0;
+  }
+
+  .intercoil-inner-page.awards-page .awards-timeline__item {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 18px;
+    padding-left: clamp(20px, 5vw, 28px);
+  }
+
+  .intercoil-inner-page.awards-page .awards-timeline__date {
+    flex-direction: column-reverse;
+    gap: 6px;
+  }
+
+  .intercoil-inner-page.awards-page .awards-timeline__year {
+    font-size: clamp(2.5rem, 10vw, 3.25rem);
+  }
+
+  .intercoil-inner-page.awards-page .awards-records__scene {
+    height: clamp(260px, 44vh, 400px);
+  }
+
+  .intercoil-inner-page.awards-page .awards-records__list {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: clamp(56px, 11vw, 72px);
+  }
+
+  .intercoil-inner-page.awards-page .awards-records__item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: clamp(20px, 5vw, 32px);
+    align-items: baseline;
+  }
+
+  .intercoil-inner-page.awards-page .awards-records__year {
+    margin-bottom: 0;
+    font-size: clamp(2.75rem, 11vw, 3.5rem);
+  }
+
+  .intercoil-inner-page.awards-page .awards-records__title {
+    max-width: none;
+  }
+}
