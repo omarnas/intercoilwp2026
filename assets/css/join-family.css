@@ -1,0 +1,409 @@
+/**
+ * Intercoil — Join Our Family (Careers) page styles.
+ * Scoped under .intercoil-inner-page.join-family-page, on top of inner-pages.css.
+ *
+ * Composition:
+ *   - Hero: shared Overlay hero, compact register, eyebrow + title + two
+ *     paragraphs + one primary CTA (legacy-btn) anchoring down to the
+ *     application form — the standard inner-hero pattern, no separate
+ *     careers-listing page exists yet.
+ *   - Why Join Intercoil: Gallery utility component, grid register
+ *     (reused as-is from Book a Consultation's Categories) — framed
+ *     photography with a quiet caption, no icons, no invented body copy.
+ *   - Editorial Statement: the page's Signature Moment — Cinematic
+ *     Composition — reuses the shared legacy-closing shell mid-page,
+ *     quote only, no actions (same pattern as Book a Consultation's
+ *     closing quote).
+ *   - Apply Now: third register of the Form utility component — the
+ *     filled/quiet-fill register from Warranty Registration, extended
+ *     with a native file input styled via ::file-selector-button (first
+ *     file upload on the site) and a custom checkbox for privacy
+ *     consent. Grouped into named fieldsets, space-separated only.
+ *   - Closing: first built instance of the CTA component's bold,
+ *     photo-free register — brand-gradient background (--grad-brand)
+ *     with an ambient glow pair, no image, since the page already
+ *     spent its one Signature Moment on the Editorial Statement above.
+ */
+
+/* ════════════════════════════════════════════════════════════
+   HERO
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.join-family-page .join-hero__tagline {
+  max-width: 62ch;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.7;
+}
+
+.intercoil-inner-page.join-family-page .join-hero__tagline--second {
+  margin-top: clamp(14px, 2vw, 18px);
+  max-width: 56ch;
+}
+
+.intercoil-inner-page.join-family-page .join-hero__actions {
+  margin-top: clamp(32px, 4.5vw, 44px);
+}
+
+/* ════════════════════════════════════════════════════════════
+   WHY JOIN INTERCOIL — Gallery grid register (photography, no icons)
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.join-family-page .join-why {
+  padding: var(--inner-pad) 0;
+  background: var(--color-white);
+}
+
+.intercoil-inner-page.join-family-page .join-why__label {
+  display: block;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.intercoil-inner-page.join-family-page .join-why__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 40px);
+}
+
+.intercoil-inner-page.join-family-page .join-why-block__media {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-img, 20px);
+  overflow: hidden;
+  box-shadow: 0 16px 44px rgba(0, 8, 56, 0.08);
+}
+
+.intercoil-inner-page.join-family-page .join-why-block__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--inner-ease);
+}
+
+.intercoil-inner-page.join-family-page .join-why-block:hover .join-why-block__media img {
+  transform: scale(1.06);
+}
+
+.intercoil-inner-page.join-family-page .join-why-block__caption {
+  margin: clamp(18px, 2.2vw, 24px) 0 0;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--color-navy);
+}
+
+/* ════════════════════════════════════════════════════════════
+   EDITORIAL STATEMENT — Signature Moment, quote only
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.join-family-page .join-statement__quote {
+  max-width: 22ch;
+}
+
+/* ════════════════════════════════════════════════════════════
+   APPLY NOW — Form component, filled register + file/consent
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.join-family-page .join-apply {
+  padding: var(--inner-pad) 0;
+  background: var(--color-off-white);
+}
+
+.intercoil-inner-page.join-family-page .join-apply__layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.intercoil-inner-page.join-family-page .join-apply__label {
+  display: block;
+}
+
+.intercoil-inner-page.join-family-page .join-apply__title {
+  margin: 0 0 clamp(48px, 6vw, 72px);
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.join-family-page .join-form {
+  width: 100%;
+  max-width: 780px;
+  text-align: left;
+}
+
+.intercoil-inner-page.join-family-page .join-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 clamp(48px, 6vw, 72px);
+}
+
+.intercoil-inner-page.join-family-page .join-fieldset:last-of-type {
+  margin-bottom: 0;
+}
+
+.intercoil-inner-page.join-family-page .join-fieldset__legend {
+  padding: 0;
+  margin-bottom: clamp(20px, 2.5vw, 28px);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.join-family-page .join-fieldset__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 2.5vw, 28px) clamp(20px, 2.5vw, 32px);
+}
+
+.intercoil-inner-page.join-family-page .join-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.intercoil-inner-page.join-family-page .join-field--full {
+  grid-column: 1 / -1;
+}
+
+.intercoil-inner-page.join-family-page .join-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0, 8, 56, 0.6);
+}
+
+.intercoil-inner-page.join-family-page .join-label__optional {
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: rgba(0, 8, 56, 0.4);
+}
+
+.intercoil-inner-page.join-family-page .join-required {
+  color: var(--color-royal);
+}
+
+.intercoil-inner-page.join-family-page .join-input {
+  appearance: none;
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(0, 8, 56, 0.035);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.98rem;
+  font-weight: 400;
+  color: var(--color-navy);
+  transition: background 0.35s var(--inner-ease), border-color 0.35s var(--inner-ease);
+}
+
+.intercoil-inner-page.join-family-page .join-input::placeholder {
+  color: rgba(0, 8, 56, 0.34);
+}
+
+.intercoil-inner-page.join-family-page .join-input:focus {
+  outline: none;
+  background: var(--color-white);
+  border-color: rgba(0, 31, 140, 0.3);
+}
+
+/* File input — native control, styled via ::file-selector-button so
+   the "no file chosen" state stays honest without page-specific JS. */
+.intercoil-inner-page.join-family-page .join-file {
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  color: rgba(0, 8, 56, 0.55);
+  cursor: pointer;
+}
+
+.intercoil-inner-page.join-family-page .join-file:hover {
+  background: rgba(0, 8, 56, 0.05);
+}
+
+.intercoil-inner-page.join-family-page .join-file::file-selector-button {
+  margin-right: 14px;
+  padding: 9px 20px;
+  border: none;
+  border-radius: var(--radius-btn, 999px);
+  background: var(--color-navy);
+  color: var(--color-white);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s var(--inner-ease);
+}
+
+.intercoil-inner-page.join-family-page .join-file:hover::file-selector-button {
+  background: var(--color-royal);
+}
+
+/* Consent checkbox */
+.intercoil-inner-page.join-family-page .join-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: clamp(40px, 5vw, 56px) 0 clamp(28px, 3.5vw, 36px);
+}
+
+.intercoil-inner-page.join-family-page .join-consent input[type='checkbox'] {
+  appearance: none;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  border: 1.5px solid rgba(0, 8, 56, 0.25);
+  border-radius: 5px;
+  background: var(--color-white);
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s var(--inner-ease), border-color 0.3s var(--inner-ease);
+}
+
+.intercoil-inner-page.join-family-page .join-consent input[type='checkbox']:checked {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+}
+
+.intercoil-inner-page.join-family-page .join-consent input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--color-white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.intercoil-inner-page.join-family-page .join-consent input[type='checkbox']:focus-visible {
+  outline: 2px solid var(--color-royal);
+  outline-offset: 2px;
+}
+
+.intercoil-inner-page.join-family-page .join-consent label {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: rgba(0, 8, 56, 0.66);
+  cursor: pointer;
+}
+
+.intercoil-inner-page.join-family-page .join-form__actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* ════════════════════════════════════════════════════════════
+   CLOSING CTA — CTA component, bold register, no photo
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.join-family-page .join-cta {
+  position: relative;
+  padding: var(--inner-pad) 0;
+  background: var(--grad-brand);
+  color: var(--color-white);
+  text-align: center;
+  overflow: hidden;
+}
+
+.intercoil-inner-page.join-family-page .join-cta__glow {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.intercoil-inner-page.join-family-page .join-cta__glow--left {
+  width: min(50vw, 480px);
+  height: min(50vw, 480px);
+  left: -8%;
+  bottom: -10%;
+  background: radial-gradient(circle, rgba(0, 160, 243, 0.32) 0%, transparent 68%);
+}
+
+.intercoil-inner-page.join-family-page .join-cta__glow--right {
+  width: min(40vw, 420px);
+  height: min(40vw, 420px);
+  right: -4%;
+  top: -12%;
+  background: radial-gradient(circle, rgba(141, 183, 255, 0.24) 0%, transparent 68%);
+}
+
+.intercoil-inner-page.join-family-page .join-cta__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.intercoil-inner-page.join-family-page .join-cta__eyebrow {
+  display: block;
+  margin-bottom: clamp(16px, 2.5vw, 24px);
+}
+
+.intercoil-inner-page.join-family-page .join-cta__heading {
+  margin: 0 auto;
+  max-width: 20ch;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+.intercoil-inner-page.join-family-page .join-cta__body {
+  margin: clamp(20px, 2.5vw, 28px) auto 0;
+  max-width: 50ch;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.intercoil-inner-page.join-family-page .join-cta__actions {
+  margin-top: clamp(36px, 5vw, 48px);
+  display: flex;
+  justify-content: center;
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .intercoil-inner-page.join-family-page .join-why__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .intercoil-inner-page.join-family-page .join-why__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intercoil-inner-page.join-family-page .join-fieldset__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intercoil-inner-page.join-family-page .join-hero__actions .legacy-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .intercoil-inner-page.join-family-page .join-why-block:hover .join-why-block__media img {
+    transform: none;
+  }
+}

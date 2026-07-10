@@ -2,8 +2,12 @@
 /**
  * Preview access — restrict WIP inner pages to allowed IPs or logged-in users.
  *
- * Disable before launch:
- *   add_filter( 'intercoil_preview_gate_enabled', '__return_false' );
+ * Gate is currently OFF (opened to all visitors) — every inner page listed in
+ * intercoil_preview_gated_templates() is publicly reachable and its nav link
+ * resolves normally for everyone, not just the allowlisted IPs / logged-in
+ * admin. Re-enable with either of:
+ *   - flip the default below back to true, or
+ *   - add_filter( 'intercoil_preview_gate_enabled', '__return_true' );
  *
  * @package Intercoil
  */
@@ -18,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return bool
  */
 function intercoil_preview_gate_enabled() {
-	return (bool) apply_filters( 'intercoil_preview_gate_enabled', true );
+	return (bool) apply_filters( 'intercoil_preview_gate_enabled', false );
 }
 
 /**
@@ -105,6 +109,9 @@ function intercoil_preview_gated_templates() {
 				'page-templates/template-awards.php',
 				'page-templates/template-locate-store.php',
 				'page-templates/template-become-partner.php',
+				'page-templates/template-book-consultation.php',
+				'page-templates/template-warranty-registration.php',
+				'page-templates/template-join-our-family.php',
 			),
 			intercoil_comfort_collection_templates(),
 			intercoil_brand_page_templates(),

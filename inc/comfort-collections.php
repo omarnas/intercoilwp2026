@@ -249,12 +249,19 @@ function intercoil_resolve_default_nav_link_url( $label, $placeholder ) {
 	}
 
 	$page_labels = array(
-		'Healthy Sleep Tips'        => 'healthy-sleep-tips',
-		'Mattress Guide'            => 'mattress-guide',
-		'Sleep Products Care'       => 'sleep-products-care',
-		'Awards & Guinness Records' => 'awards-guinness-records',
-		'Locate A Store'            => 'locate-a-store',
-		'Become a Partner'          => 'become-a-partner',
+		'Healthy Sleep Tips'                     => 'healthy-sleep-tips',
+		'Mattress Guide'                         => 'mattress-guide',
+		'Sleep Products Care'                    => 'sleep-products-care',
+		'Awards & Guinness Records'               => 'awards-guinness-records',
+		'Locate A Store'                          => 'locate-a-store',
+		'Become a Partner'                        => 'become-a-partner',
+		'Book a Consultation'                     => 'book-a-consultation',
+		'Warranty Registration'                   => 'warranty-registration',
+		'Join Our Family'                         => 'join-our-family',
+		'Our Legacy'                              => 'our-legacy',
+		'Our Promise'                             => 'our-legacy',
+		'Sustainability & Social Responsibility'  => 'sustainability',
+		'Certificates and Excellence'             => 'iso-certificates',
 	);
 	if ( isset( $page_labels[ $label ] ) ) {
 		$page = get_page_by_path( $page_labels[ $label ] );

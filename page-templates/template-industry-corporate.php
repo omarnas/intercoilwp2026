@@ -115,7 +115,7 @@ get_header();
 		'quote'             => 'Delivering exactly what was promised, to the specification agreed, at the scale required.',
 		'image'             => 'images/photography/general/elegant-bedroom-interior-with-bed-and-decoration-2026-03-10-03-05-55-utc.jpg',
 		'cta_primary_label' => 'Book a Consultation',
-		'cta_primary_url'   => home_url( '/' ) . '#contact',
+		'cta_primary_url'   => intercoil_page_url( 'book-a-consultation' ),
 		'cta_ghost_label'   => 'Become a Partner',
 		'cta_ghost_url'     => home_url( '/' ) . '#contact',
 	) );

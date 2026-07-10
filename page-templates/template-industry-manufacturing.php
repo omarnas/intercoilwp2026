@@ -120,7 +120,7 @@ get_header();
 		'quote'             => 'Quality without compromise, at scale.',
 		'image'             => 'images/photography/manufacturing/mattressfoamfull.jpg',
 		'cta_primary_label' => 'Book a Consultation',
-		'cta_primary_url'   => home_url( '/' ) . '#contact',
+		'cta_primary_url'   => intercoil_page_url( 'book-a-consultation' ),
 		'cta_ghost_label'   => 'Foam & Industrial Solutions',
 		'cta_ghost_url'     => intercoil_comfort_collection_url( 'foam' ),
 	) );

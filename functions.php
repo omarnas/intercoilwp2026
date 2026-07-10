@@ -238,6 +238,54 @@ function intercoil_enqueue_assets() {
 		);
 	}
 
+	if ( is_page_template( 'page-templates/template-warranty-registration.php' ) ) {
+		wp_enqueue_style(
+			'intercoil-inner-pages',
+			$theme_uri . '/assets/css/inner-pages.css',
+			array( 'intercoil-main' ),
+			intercoil_file_version( $theme_dir . '/assets/css/inner-pages.css' )
+		);
+
+		wp_enqueue_style(
+			'intercoil-warranty',
+			$theme_uri . '/assets/css/warranty.css',
+			array( 'intercoil-inner-pages' ),
+			intercoil_file_version( $theme_dir . '/assets/css/warranty.css' )
+		);
+	}
+
+	if ( is_page_template( 'page-templates/template-book-consultation.php' ) ) {
+		wp_enqueue_style(
+			'intercoil-inner-pages',
+			$theme_uri . '/assets/css/inner-pages.css',
+			array( 'intercoil-main' ),
+			intercoil_file_version( $theme_dir . '/assets/css/inner-pages.css' )
+		);
+
+		wp_enqueue_style(
+			'intercoil-consultation',
+			$theme_uri . '/assets/css/consultation.css',
+			array( 'intercoil-inner-pages' ),
+			intercoil_file_version( $theme_dir . '/assets/css/consultation.css' )
+		);
+	}
+
+	if ( is_page_template( 'page-templates/template-join-our-family.php' ) ) {
+		wp_enqueue_style(
+			'intercoil-inner-pages',
+			$theme_uri . '/assets/css/inner-pages.css',
+			array( 'intercoil-main' ),
+			intercoil_file_version( $theme_dir . '/assets/css/inner-pages.css' )
+		);
+
+		wp_enqueue_style(
+			'intercoil-join-family',
+			$theme_uri . '/assets/css/join-family.css',
+			array( 'intercoil-inner-pages' ),
+			intercoil_file_version( $theme_dir . '/assets/css/join-family.css' )
+		);
+	}
+
 	if ( is_page_template( 'page-templates/template-locate-store.php' ) ) {
 		wp_enqueue_style(
 			'intercoil-inner-pages',

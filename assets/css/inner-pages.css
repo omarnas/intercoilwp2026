@@ -377,6 +377,65 @@
 }
 
 /* ════════════════════════════════════════════════════════════
+   SHARED — LIGHT-BG BUTTON
+   The legacy-btn / industry-btn / brand-btn registers are all
+   built for dark hero/closing sections (white-filled button on a
+   photo or gradient backdrop). This is the equivalent for a CTA
+   that sits on a white or off-white section — a solid navy pill,
+   used by page-level forms (e.g. Book a Consultation, Warranty
+   Registration). Reuse this rather than adding another near-copy.
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page .form-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 46px;
+  border: none;
+  border-radius: var(--radius-btn);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.4s var(--inner-ease), box-shadow 0.4s var(--inner-ease);
+}
+
+.intercoil-inner-page .form-btn--primary {
+  background: var(--color-navy);
+  color: var(--color-white);
+  box-shadow: 0 16px 40px rgba(0, 8, 56, 0.22);
+}
+
+.intercoil-inner-page .form-btn--primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 52px rgba(0, 8, 56, 0.28);
+}
+
+.intercoil-inner-page .form-btn__arrow {
+  transition: transform 0.4s var(--inner-ease);
+}
+
+.intercoil-inner-page .form-btn--primary:hover .form-btn__arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+  .intercoil-inner-page .form-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intercoil-inner-page .form-btn--primary:hover {
+    transform: none;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
    SHARED — MEDIA ROW (alternating image / text)
    Default is a framed card row (e.g. Sustainability pillars).
    --cinematic switches to a sticky, full-bleed treatment for a

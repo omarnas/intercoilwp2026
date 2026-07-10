@@ -1,0 +1,344 @@
+/**
+ * Intercoil — Book a Consultation page styles.
+ * Scoped under .intercoil-inner-page.consultation-page, on top of inner-pages.css.
+ *
+ * Composition:
+ *   - Hero: shared Overlay hero, compact register, title + supplied
+ *     paragraph only — no eyebrow, no CTA (the form below is the CTA).
+ *   - Categories: first build of the Gallery utility component (grid
+ *     register) — framed photography with a quiet caption, no icons.
+ *   - Booking: first build of the Form utility component — single
+ *     generously-spaced column, paired short fields two-up, underline
+ *     inputs instead of boxed borders. CTA uses the shared .form-btn
+ *     (inner-pages.css) — a light-bg equivalent of legacy-btn.
+ *   - Journey: List component, sequence register, adapted horizontal
+ *     for a 3-step flow (existing register is vertical only).
+ *   - Closing: the page's Signature Moment — Cinematic Composition —
+ *     reuses the shared legacy-closing shell as-is, quote only.
+ */
+
+/* ════════════════════════════════════════════════════════════
+   HERO — title + paragraph only
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.consultation-page .consultation-hero__tagline {
+  max-width: 60ch;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.7;
+}
+
+/* ════════════════════════════════════════════════════════════
+   CATEGORIES — Gallery grid register (photography, no icons)
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.consultation-page .consultation-categories {
+  padding: var(--inner-pad) 0;
+  background: var(--color-white);
+}
+
+.intercoil-inner-page.consultation-page .consultation-categories__label {
+  display: block;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.intercoil-inner-page.consultation-page .consultation-categories__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 40px);
+}
+
+.intercoil-inner-page.consultation-page .consultation-category__media {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-img, 20px);
+  overflow: hidden;
+  box-shadow: 0 16px 44px rgba(0, 8, 56, 0.08);
+}
+
+.intercoil-inner-page.consultation-page .consultation-category__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--inner-ease);
+}
+
+.intercoil-inner-page.consultation-page .consultation-category:hover .consultation-category__media img {
+  transform: scale(1.06);
+}
+
+.intercoil-inner-page.consultation-page .consultation-category__caption {
+  margin: clamp(18px, 2.2vw, 24px) 0 0;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--color-navy);
+}
+
+/* ════════════════════════════════════════════════════════════
+   BOOKING — Form component (first build)
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.consultation-page .consultation-booking {
+  padding: var(--inner-pad) 0;
+  background: var(--color-off-white);
+}
+
+.intercoil-inner-page.consultation-page .consultation-booking__layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intercoil-inner-page.consultation-page .consultation-booking__label {
+  display: block;
+  margin-bottom: clamp(36px, 5vw, 56px);
+  text-align: center;
+}
+
+.intercoil-inner-page.consultation-page .consultation-form {
+  width: 100%;
+  max-width: 840px;
+}
+
+.intercoil-inner-page.consultation-page .consultation-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 3.5vw, 40px) clamp(24px, 3vw, 48px);
+}
+
+.intercoil-inner-page.consultation-page .consultation-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.intercoil-inner-page.consultation-page .consultation-field--full {
+  grid-column: 1 / -1;
+}
+
+.intercoil-inner-page.consultation-page .consultation-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0, 8, 56, 0.68);
+}
+
+.intercoil-inner-page.consultation-page .consultation-label__optional {
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: rgba(0, 8, 56, 0.4);
+}
+
+.intercoil-inner-page.consultation-page .consultation-input {
+  appearance: none;
+  width: 100%;
+  padding: 12px 2px 14px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 8, 56, 0.16);
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-navy);
+  transition: border-color 0.4s var(--inner-ease);
+}
+
+.intercoil-inner-page.consultation-page .consultation-input::placeholder {
+  color: rgba(0, 8, 56, 0.34);
+}
+
+.intercoil-inner-page.consultation-page .consultation-input:focus {
+  outline: none;
+  border-bottom-color: var(--color-royal);
+}
+
+.intercoil-inner-page.consultation-page .consultation-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23000838' stroke-opacity='0.5' stroke-width='1.4' d='M3 5l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+  background-size: 14px;
+  padding-right: 22px;
+}
+
+.intercoil-inner-page.consultation-page .consultation-select option {
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.consultation-page .consultation-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.7;
+}
+
+.intercoil-inner-page.consultation-page .consultation-radio-field {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.intercoil-inner-page.consultation-page .consultation-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.intercoil-inner-page.consultation-page .consultation-radio-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.intercoil-inner-page.consultation-page .consultation-radio-pill input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.intercoil-inner-page.consultation-page .consultation-radio-pill span {
+  padding: 11px 22px;
+  border: 1px solid rgba(0, 8, 56, 0.16);
+  border-radius: var(--radius-btn, 999px);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--color-navy);
+  transition: background 0.35s var(--inner-ease), border-color 0.35s var(--inner-ease), color 0.35s var(--inner-ease);
+}
+
+.intercoil-inner-page.consultation-page .consultation-radio-pill input:checked + span {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: var(--color-white);
+}
+
+.intercoil-inner-page.consultation-page .consultation-radio-pill input:focus-visible + span {
+  border-color: var(--color-royal);
+}
+
+.intercoil-inner-page.consultation-page .consultation-form__actions {
+  margin-top: clamp(40px, 5vw, 56px);
+  display: flex;
+  justify-content: center;
+}
+
+/* ════════════════════════════════════════════════════════════
+   JOURNEY — List, sequence register, horizontal variant
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.consultation-page .consultation-journey {
+  padding: var(--inner-pad) 0;
+  background: var(--color-white);
+}
+
+.intercoil-inner-page.consultation-page .consultation-journey__label {
+  display: block;
+  margin-bottom: clamp(48px, 6vw, 72px);
+  text-align: center;
+}
+
+.intercoil-inner-page.consultation-page .consultation-journey__list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 40px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.intercoil-inner-page.consultation-page .consultation-journey__step {
+  flex: 1 1 0;
+  max-width: 280px;
+  text-align: center;
+}
+
+.intercoil-inner-page.consultation-page .consultation-journey__num {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(0, 8, 56, 0.38);
+}
+
+.intercoil-inner-page.consultation-page .consultation-journey__text {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.consultation-page .consultation-journey__connector {
+  flex: 0 0 auto;
+  padding-top: 2px;
+  font-size: 1.1rem;
+  color: rgba(0, 8, 56, 0.22);
+}
+
+/* ════════════════════════════════════════════════════════════
+   CLOSING — quote only, no actions
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.consultation-page .consultation-closing__quote {
+  max-width: 20ch;
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .intercoil-inner-page.consultation-page .consultation-categories__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .intercoil-inner-page.consultation-page .consultation-journey__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+
+  .intercoil-inner-page.consultation-page .consultation-journey__step {
+    max-width: none;
+  }
+
+  .intercoil-inner-page.consultation-page .consultation-journey__connector {
+    display: block;
+    text-align: center;
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .intercoil-inner-page.consultation-page .consultation-categories__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intercoil-inner-page.consultation-page .consultation-form__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  .intercoil-inner-page.consultation-page .consultation-category:hover .consultation-category__media img {
+    transform: none;
+  }
+}

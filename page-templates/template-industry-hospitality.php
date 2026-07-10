@@ -143,7 +143,7 @@ get_header();
 		'quote'             => 'Premium sleep solutions delivered with precision, at scale, and without compromise.',
 		'image'             => 'images/photography/hospitality/3d-rendering-beautiful-luxury-bedroom-suite-in-hot-2026-03-17-04-32-19-utc.jpg',
 		'cta_primary_label' => 'Book a Consultation',
-		'cta_primary_url'   => home_url( '/' ) . '#contact',
+		'cta_primary_url'   => intercoil_page_url( 'book-a-consultation' ),
 		'cta_ghost_label'   => 'Discover Beautyrest by Simmons',
 		'cta_ghost_url'     => intercoil_brand_page_url( 'beautyrest' ),
 	) );

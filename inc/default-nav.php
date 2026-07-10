@@ -32,7 +32,7 @@ function intercoil_primary_menu_fallback() {
 				'Mattresses',
 				'Bedding Accessories',
 				'Foam & Industrial Solutions',
-				'Hospitality Sleep',
+				
 			),
 		),
 		array(
@@ -62,7 +62,6 @@ function intercoil_primary_menu_fallback() {
 				'Healthy Sleep Tips',
 				'Mattress Guide',
 				'Sleep Products Care',
-				'Sleep',
 			),
 		),
 		array(
@@ -127,7 +126,7 @@ function intercoil_mobile_menu_fallback() {
 				'Mattresses',
 				'Bedding Accessories',
 				'Foam & Industrial Solutions',
-				'Hospitality Sleep',
+				
 			),
 		),
 		array(
@@ -156,7 +155,7 @@ function intercoil_mobile_menu_fallback() {
 				'Healthy Sleep Tips',
 				'Mattress Guide',
 				'Sleep Products Care',
-				'Sleep',
+		
 			),
 		),
 		array(

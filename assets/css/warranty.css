@@ -1,0 +1,194 @@
+/**
+ * Intercoil — Warranty Registration page styles.
+ * Scoped under .intercoil-inner-page.warranty-page, on top of inner-pages.css.
+ *
+ * Composition:
+ *   - Hero: shared Overlay hero, compact register, eyebrow + title +
+ *     intro paragraph — the standard inner-hero pattern.
+ *   - Why Register: Editorial Story, image-free two-column register —
+ *     two plain text blocks, no card chrome.
+ *   - Registration: second register of the Form utility component —
+ *     filled quiet inputs (no boxed border) instead of Book a
+ *     Consultation's underline register, since this page is meant to
+ *     read as more functional/document-like. Fields grouped by
+ *     fieldset (Customer / Purchase / Product Info), separated by
+ *     space only, no divider lines. CTA uses the shared .form-btn
+ *     (inner-pages.css).
+ */
+
+/* ════════════════════════════════════════════════════════════
+   HERO
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.warranty-page .warranty-hero__tagline {
+  max-width: 58ch;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.7;
+}
+
+/* ════════════════════════════════════════════════════════════
+   WHY REGISTER — plain two-column prose, no cards
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.warranty-page .warranty-why {
+  padding: var(--inner-pad) 0;
+  background: var(--color-white);
+}
+
+.intercoil-inner-page.warranty-page .warranty-why__label {
+  display: block;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+
+.intercoil-inner-page.warranty-page .warranty-why__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(36px, 5vw, 72px);
+}
+
+.intercoil-inner-page.warranty-page .warranty-why__title {
+  margin: 0 0 clamp(14px, 2vw, 18px);
+  font-size: clamp(1.2rem, 1.9vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.warranty-page .warranty-why__text {
+  margin: 0;
+  font-size: clamp(0.98rem, 1.3vw, 1.05rem);
+  line-height: 1.8;
+  color: rgba(0, 8, 56, 0.66);
+}
+
+/* ════════════════════════════════════════════════════════════
+   REGISTRATION — form + one accent image
+   ════════════════════════════════════════════════════════════ */
+
+.intercoil-inner-page.warranty-page .warranty-register {
+  padding: var(--inner-pad) 0;
+  background: var(--color-off-white);
+}
+
+.intercoil-inner-page.warranty-page .warranty-register__layout {
+  display: flex;
+  justify-content: center;
+}
+
+.intercoil-inner-page.warranty-page .warranty-register__form-wrap {
+  width: 100%;
+  max-width: 780px;
+}
+
+.intercoil-inner-page.warranty-page .warranty-register__title {
+  margin: 0 0 clamp(40px, 5vw, 56px);
+  max-width: 26ch;
+  font-size: clamp(1.6rem, 2.8vw, 2.15rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.warranty-page .warranty-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 clamp(48px, 6vw, 72px);
+}
+
+.intercoil-inner-page.warranty-page .warranty-fieldset:last-of-type {
+  margin-bottom: 0;
+}
+
+.intercoil-inner-page.warranty-page .warranty-fieldset__legend {
+  padding: 0;
+  margin-bottom: clamp(20px, 2.5vw, 28px);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-navy);
+}
+
+.intercoil-inner-page.warranty-page .warranty-fieldset__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 2.5vw, 28px) clamp(20px, 2.5vw, 32px);
+}
+
+.intercoil-inner-page.warranty-page .warranty-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.intercoil-inner-page.warranty-page .warranty-field--full {
+  grid-column: 1 / -1;
+}
+
+.intercoil-inner-page.warranty-page .warranty-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0, 8, 56, 0.6);
+}
+
+.intercoil-inner-page.warranty-page .warranty-required {
+  color: var(--color-royal);
+}
+
+.intercoil-inner-page.warranty-page .warranty-input {
+  appearance: none;
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(0, 8, 56, 0.035);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.98rem;
+  font-weight: 400;
+  color: var(--color-navy);
+  transition: background 0.35s var(--inner-ease), border-color 0.35s var(--inner-ease);
+}
+
+.intercoil-inner-page.warranty-page .warranty-input::placeholder {
+  color: rgba(0, 8, 56, 0.34);
+}
+
+.intercoil-inner-page.warranty-page .warranty-input:focus {
+  outline: none;
+  background: var(--color-white);
+  border-color: rgba(0, 31, 140, 0.3);
+}
+
+.intercoil-inner-page.warranty-page .warranty-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23000838' stroke-opacity='0.5' stroke-width='1.4' d='M3 5l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 14px;
+  padding-right: 40px;
+}
+
+.intercoil-inner-page.warranty-page .warranty-form__actions {
+  margin-top: clamp(44px, 5vw, 60px);
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .intercoil-inner-page.warranty-page .warranty-why__grid {
+    grid-template-columns: 1fr;
+    gap: clamp(32px, 6vw, 48px);
+  }
+}
+
+@media (max-width: 640px) {
+  .intercoil-inner-page.warranty-page .warranty-fieldset__grid {
+    grid-template-columns: 1fr;
+  }
+}
