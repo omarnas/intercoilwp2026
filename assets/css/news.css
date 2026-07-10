@@ -266,7 +266,7 @@
 }
 
 .intercoil-inner-page .news-single__hero-content {
-  max-width: 18ch;
+  max-width: min(760px, 100%);
 }
 
 .intercoil-inner-page .news-single__eyebrow {
