@@ -218,7 +218,7 @@ get_header();
         <div class="collections__grid">
 
           <!-- Large tile — Mattresses -->
-          <div class="collection-tile collection-tile--large">
+          <a href="<?php echo esc_url( intercoil_page_url( 'mattresses' ) ); ?>" class="collection-tile collection-tile--large" aria-label="Explore Mattresses">
             <div class="reveal-mask">
               <img
                 class="collection-tile__img"
@@ -232,10 +232,10 @@ get_header();
               <h3 class="collection-tile__name">Mattresses</h3>
               <p class="collection-tile__sub">Engineered for every sleep style</p>
             </div>
-          </div>
+          </a>
 
           <!-- Beds & Bedroom Furniture -->
-          <div class="collection-tile collection-tile--sm">
+          <a href="<?php echo esc_url( intercoil_page_url( 'beds-bedroom-furniture' ) ); ?>" class="collection-tile collection-tile--sm" aria-label="Explore Beds & Bedroom Furniture">
             <div class="reveal-mask">
               <img
                 class="collection-tile__img"
@@ -249,10 +249,10 @@ get_header();
               <h3 class="collection-tile__name">Beds &amp; Bedroom Furniture</h3>
               <p class="collection-tile__sub">Complete sleep environments</p>
             </div>
-          </div>
+          </a>
 
           <!-- Bedding Accessories -->
-          <div class="collection-tile collection-tile--sm">
+          <a href="<?php echo esc_url( intercoil_page_url( 'bedding-accessories' ) ); ?>" class="collection-tile collection-tile--sm" aria-label="Explore Bedding Accessories">
             <div class="reveal-mask">
               <img
                 class="collection-tile__img"
@@ -266,10 +266,10 @@ get_header();
               <h3 class="collection-tile__name">Bedding Accessories</h3>
               <p class="collection-tile__sub">The finishing touch</p>
             </div>
-          </div>
+          </a>
 
           <!-- Foam & Industrial -->
-          <div class="collection-tile collection-tile--sm">
+          <a href="<?php echo esc_url( intercoil_page_url( 'foam-industrial-solutions' ) ); ?>" class="collection-tile collection-tile--sm" aria-label="Explore Industrial Foam">
             <div class="reveal-mask">
               <img
                 class="collection-tile__img"
@@ -283,10 +283,10 @@ get_header();
               <h3 class="collection-tile__name">Industrial Foam</h3>
               <p class="collection-tile__sub">Precision materials at scale</p>
             </div>
-          </div>
+          </a>
 
           <!-- Hospitality Sleep -->
-          <div class="collection-tile collection-tile--sm">
+          <a href="<?php echo esc_url( intercoil_page_url( 'hospitality-solutions' ) ); ?>" class="collection-tile collection-tile--sm" aria-label="Explore Hospitality Sleep">
             <div class="reveal-mask">
               <img
                 class="collection-tile__img"
@@ -300,7 +300,7 @@ get_header();
               <h3 class="collection-tile__name">Hospitality Sleep</h3>
               <p class="collection-tile__sub">Built for the world's finest properties</p>
             </div>
-          </div>
+          </a>
 
         </div>
       </div>
@@ -336,7 +336,7 @@ get_header();
             </p>
 
             <div class="reveal-up delay-3">
-              <a href="#contact" class="btn btn--primary">
+              <a href="<?php echo esc_url( intercoil_page_url( 'hospitality-solutions' ) ); ?>" class="btn btn--primary">
                 Explore Hospitality Solutions
                 <svg class="btn-arrow" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                   <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -410,7 +410,7 @@ get_header();
             </p>
 
             <div class="fade-up delay-2">
-              <a href="#contact" class="btn btn--primary" style="margin-top: 12px;">
+              <a href="<?php echo esc_url( intercoil_page_url( 'iso-certificates' ) ); ?>" class="btn btn--primary" style="margin-top: 12px;">
                 Learn About Our Standards
                 <svg class="btn-arrow" viewBox="0 0 18 18" fill="none" aria-hidden="true">
                   <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -504,13 +504,13 @@ get_header();
           a premium sleep partner — Intercoil is ready to build with you.
         </p>
         <div class="cta-section__btns fade-up delay-3">
-          <a href="mailto:info@intercoil.com" class="btn btn--primary">
+          <a href="<?php echo esc_url( intercoil_page_url( 'book-a-consultation' ) ); ?>" class="btn btn--primary">
             Book a Consultation
             <svg class="btn-arrow" viewBox="0 0 18 18" fill="none" aria-hidden="true">
               <path d="M3 9h12M9 3l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
-          <a href="mailto:info@intercoil.com" class="btn btn--outline">
+          <a href="<?php echo esc_url( intercoil_page_url( 'become-a-partner' ) ); ?>" class="btn btn--outline">
             Become a Partner
           </a>
         </div>

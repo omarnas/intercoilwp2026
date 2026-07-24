@@ -1407,6 +1407,7 @@ ul { list-style: none; }
 }
 
 .collection-tile {
+  display: block;
   position: relative;
   border-radius: var(--radius-card);
   overflow: hidden;
